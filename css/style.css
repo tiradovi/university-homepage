@@ -55,7 +55,7 @@ body {
   text-align: center;
 }
 
-#gallery {
+#banner-container {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -68,7 +68,7 @@ body {
 .slide-wrap {
   display: flex;
   position: relative;
-  width: 9999px; /* 충분히 크게 */
+  width: 9999px;
 }
 
 .slide {
@@ -79,6 +79,7 @@ body {
 
 .slide img {
   width: 100%;
+  height: 700px;
   display: block;
   border-radius: 10px;
 }
@@ -89,7 +90,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(50, 50, 50, 0.5);
+  background: rgba(50, 50, 50, 0.1);
   color: white;
   padding: 10px;
   border: none;
