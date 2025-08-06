@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html">
+          <img src="../img/namelogo.png" alt="대학로고" class="logo" />
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#" class="nav-link">학교소개</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">학과소개</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">공지사항</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link login-btn">로그인</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+        </ul>
+        <!-- 모바일 select 메뉴 -->
+        <select class="nav-select">
+          <option value="#">메뉴 선택</option>
+          <option value="#">학교소개</option>
+          <option value="#">학과소개</option>
+          <option value="#">공지사항</option>
+          <option value="#">자료실</option>
+          <option value="login.html">로그인</option>
+          <option value="#">마이페이지</option>
+        </select>
+      </div>
+    </nav>
+
+    <section id="banner">
+      
+      <div id="gallery">
+        <button id="prev">이전</button>
+        <div class="slide-wrap">
+          <div class="slide">
+            <img src="../img/banner1.png" alt="배너1" />
+          </div>
+          <div class="slide">
+            <img src="../img/banner2.png" alt="배너2" />
+          </div>
+          <div class="slide">
+            <img src="../img/banner3.png" alt="배너3" />
+          </div>
+        </div>
+        <button id="next">다음</button>
+      </div>
+    </section>
+
+    <!-- 환영 팝업 
+    <div class="popup" id="welcomePopup">
+      <div class="popup-content">
+        <p>우리 대학교 홈페이지에 오신 것을 환영합니다!</p>
+        <button id="closePopup">닫기</button>
+      </div>
+    </div>
+-->
+    <script src="../js/index.js"></script>
+  </body>
+</html>

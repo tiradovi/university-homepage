@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* 네비게이션 */
+.nav {
+  background: rgb(219, 219, 219);
+  padding: 8px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  height: 60px;
+  cursor: pointer;
+}
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+.nav-item {
+  background: rgb(100, 100, 100);
+  border: 1px solid #666;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+.nav-item:hover {
+  background: #007bff;
+}
+
+/* select 메뉴 (모바일) */
+.nav-select {
+  display: none;
+  padding: 5px;
+}
+/* 배너 기본 */
+#banner {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#gallery {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.slide-wrap {
+  display: flex;
+  position: relative;
+  width: 9999px; /* 충분히 크게 */
+}
+
+.slide {
+  width: 100%;
+  max-width: 900px;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* 버튼 */
+#prev,
+#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(50, 50, 50, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+#prev:hover,
+#next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#prev {
+  left: 10px;
+}
+#next {
+  right: 10px;
+}
+
+/* 팝업 */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-select {
+    display: block;
+  }
+}
