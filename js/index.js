@@ -10,7 +10,7 @@ $(function () {
 // 페이지 초기화
 function initialize() {
   initializeSlider();
-  setupResizeEvents();
+  ResizeEventsListener();
   colorModeLogoChange();
   colorModeChangeListener();
 }
@@ -46,7 +46,7 @@ function navigationToggle() {
   $(window).trigger("resize");
 }
 
-function setupResizeEvents() {
+function ResizeEventsListener() {
   $(window)
     .resize(() => {
       const navMenu = $("#nav-menu");
@@ -67,10 +67,17 @@ function setupResizeEvents() {
 
 function colorModeLogoChange() {
   const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  $("#university-logo").attr(
-    "src",
-    isDark ? "img/namelogo_dark.png" : "img/namelogo.png"
-  );
+  if (window.location.pathname.includes("/page/")) {
+    $("#university-logo").attr(
+      "src",
+      isDark ? "../img/namelogo_dark.png" : "../img/namelogo.png"
+    );
+  } else {
+    $("#university-logo").attr(
+      "src",
+      isDark ? "img/namelogo_dark.png" : "img/namelogo.png"
+    );
+  }
 }
 
 function colorModeChangeListener() {

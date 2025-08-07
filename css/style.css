@@ -7,20 +7,19 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #e2e2e2;
   color: #000;
   margin-top: 80px;
 }
 
 /* 네비게이션 */
 nav {
-  background-color: #eaeaea;
-  position: fixed; 
-  top: 0; 
+  background: linear-gradient(135deg, #49aef1 0%, #6e7aff 50%, #3392f1 100%);
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%; 
-  z-index: 1000; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -35,41 +34,36 @@ nav {
 .nav-container > a {
   height: 80px;
 }
-.nav-container > a:hover {
-  background-color: #dadada;
-}
-.nav-container > a:active {
-  background-color: #cacaca;
-}
-.university-logo {
+
+.nav-container .university-logo {
   height: 80px;
   flex-shrink: 0;
 }
 
-.nav-menu {
+.nav-container .nav-menu {
   display: flex;
   list-style: none;
   flex: 1;
 }
 
-.nav-item {
+.nav-container .nav-item {
   flex: 1;
   min-width: 100px;
-  height: 80px;
-  background-color: #0057b7;
+  height: 78px;
+  background-color: rgba(00, 57, 212, 0.2);
   white-space: nowrap;
-  border: 1px solid gray;
+  border: 1px solid rgba(00, 57, 212, 0.5);
 }
-
+.nav-container > a:hover,
 .nav-item:hover {
   background: #0066cc;
 }
-
+.nav-container > a:active,
 .nav-item:active {
   background: #0022aa;
 }
 
-.nav-link {
+.nav-container .nav-link {
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
@@ -81,19 +75,20 @@ nav {
   font-weight: bold;
 }
 
-/* 모바일용 햄버거 버튼 */
-.nav-toggle {
+/* 모바일용 내비게이션 버튼 */
+.nav-container .nav-toggle {
   font-size: 50px;
   background: none;
   border: none;
   cursor: pointer;
   color: #333;
   display: none;
+  margin-right: 20px;
 }
 
 /* 배너 */
 #banner {
-  margin-top: 20px;
+  margin-top: 90px;
   text-align: center;
 }
 
@@ -107,28 +102,28 @@ nav {
   width: 100%;
 }
 
-.slide-wrap {
+#banner-container .slide-wrap {
   display: flex;
   width: max-content;
   position: relative;
 }
 
-.slide {
+#banner-container .slide {
   flex-shrink: 0;
   width: 100%;
   max-width: 900px;
 }
 
-.slide img {
+#banner-container .slide img {
   width: 100%;
   height: 700px;
   border-radius: 10px;
   display: block;
 }
 
-/* 슬라이드 버튼 */
-#prev,
-#next {
+/* 배너 슬라이드 버튼 */
+#banner-container #prev,
+#banner-container #next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -141,16 +136,16 @@ nav {
   border-radius: 50%;
 }
 
-#prev:hover,
-#next:hover {
+#banner-container #prev:hover,
+#banner-container #next:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-#prev {
+#banner-container #prev {
   left: 10px;
 }
 
-#next {
+#banner-container #next {
   right: 10px;
 }
 
@@ -170,9 +165,41 @@ nav {
   border-radius: 5px;
 }
 
+/**   학교 소개    ***/
+.introduce-container {
+  margin: 130px 40px;
+}
+.tab-menu {
+  width: 95%;
+  display: flex;
+  margin: auto;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 2px solid #0056b3;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.tab-btn.active {
+  background: #007bff;
+  color: white;
+}
+.tab-content {
+  display: none;
+  padding: 20px;
+  background: #f8f9fa;
+  border: 3px solid #0056b3;
+  border-radius: 8px;
+  min-height: 150px;
+}
+.tab-content.active {
+  display: block;
+}
 /* 모바일 크기 */
 @media (max-width: 768px) {
-  .nav-menu {
+  .nav-container .nav-menu {
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -183,22 +210,22 @@ nav {
     z-index: 1000;
   }
 
-  .nav-toggle {
+  .nav-container .nav-toggle {
     display: block;
   }
 
-  .nav-item {
+  .nav-container .nav-item {
     border: 1px solid gray;
   }
 
-  .nav-link {
+  .nav-container .nav-link {
     height: 80px;
     font-size: 1.8rem;
     font-weight: bold;
   }
 }
 
-/* 🌙 다크 모드 */
+/* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #121212;
@@ -206,26 +233,22 @@ nav {
   }
 
   nav {
-    background-color: #1f1f6f;
+    background: linear-gradient(135deg, #1f1f6f 0%, #3030a7 50%, #5555f3 100%);
   }
 
-  .nav-item {
-    background-color: #2a2a2a;
+  .nav-container .nav-item {
+    background-color: rgba(33, 52, 104, 0.7);
+    border: 1px solid rgba(00, 57, 212, 0.2);
   }
-  .nav-item:hover {
-    background-color: #444;
+  .nav-container .nav-item:hover {
+    background-color: #3030a7;
   }
-  .nav-item:active {
-    background-color: #222;
+  .nav-container .nav-item:active {
+    background-color: #303097;
   }
 
-  .nav-link {
+  .nav-container .nav-link {
     color: #f5f5f5;
-  }
-
-  #banner-container {
-    background-color: #222;
-    border-bottom: 2px solid #888;
   }
   .nav-container > a:hover {
     background-color: #1f1f4f;
@@ -233,6 +256,11 @@ nav {
   .nav-container > a:active {
     background-color: #1f1f2f;
   }
+  #banner-container {
+    background-color: #222;
+    border-bottom: 2px solid #888;
+  }
+
   #prev,
   #next {
     background: rgba(255, 255, 255, 0.2);
