@@ -11,37 +11,36 @@ body {
 /* 네비게이션 */
 .nav {
   background: rgb(219, 219, 219);
-  padding: 8px 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  height: 80px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
-.logo {
-  height: 60px;
-  cursor: pointer;
+.nav-container .logo {
+  flex-shrink: 0;
+  height: 80px;
 }
-.nav-menu {
-  display: flex;
+.nav-container .nav-menu {
   list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1;
 }
-.nav-item {
+.nav-container .nav-item {
   background: rgb(100, 100, 100);
-  border: 1px solid #666;
+  white-space: nowrap;
+  flex: 1;
 }
-.nav-link {
+.nav-container .nav-item:hover {
+  background: rgb(110, 110, 150);
+}
+.nav-container .nav-item:active {
+  background: rgb(10, 10, 10);
+}
+.nav-container .nav-link {
   color: white;
   text-decoration: none;
-  padding: 12px 20px;
-  display: block;
-  transition: background 0.3s;
-}
-.nav-item:hover {
-  background: #007bff;
 }
 
 /* select 메뉴 (모바일) */

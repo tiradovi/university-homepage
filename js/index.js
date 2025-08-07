@@ -1,39 +1,35 @@
-let index = 0;
+let slideIndex = 0;
 let timer;
 
+const slideWrap = $(".slide-wrap");
+const slideWidth = $(".slide").width();
+const slideCount = $(".slide").length;
+
 $(function () {
-  const $wrap = $(".slide-wrap");
-  const $slides = $(".slide");
-  const slideWidth = $(".slide").width();
+  initSlider();
+});
 
-  $wrap.append($slides.first().clone());
+function initSlider() {
+  slideWrap.append($(".slide:first").clone()); 
+  $("#next").click(() => moveSlide(1));
+  $("#prev").click(() => moveSlide(-1));
+  timer = setInterval(() => moveSlide(1), 3000);
+}
 
-  // 다음 버튼
-  $("#next").click(nextSlide);
-  // 이전 버튼
-  $("#prev").click(prevSlide);
 
-  function nextSlide() {
-    index++;
-    $wrap.animate({ marginLeft: -index * slideWidth }, 500, function () {
-      if (index === $wrap.children().length - 1) {
-        index = 0;
-        $wrap.css("margin-left", 0);
+function moveSlide(direction) {
+  slideIndex += direction;
+  slideWrap
+    .stop(true, true)
+    .animate({ marginLeft: -slideIndex * slideWidth }, 500, function () {
+      if (slideIndex >= slideCount) {
+        slideIndex = 0;
+        slideWrap.css("margin-left", 0);
+      }
+      if (slideIndex < 0) {
+        slideIndex = slideCount - 1;
+        slideWrap.css("margin-left", -slideIndex * slideWidth);
       }
     });
-  }
+}
 
-  function prevSlide() {
-    if (index === 0) {
-      index = $wrap.children().length - 1;
-      $wrap.css("margin-left", -index * slideWidth);
-    }
-    index--;
-    $wrap.animate({ marginLeft: -index * slideWidth }, 500);
-  }
-
-  function startAuto() {
-    timer = setInterval(nextSlide, 3000);
-  }
-  startAuto();
-});
