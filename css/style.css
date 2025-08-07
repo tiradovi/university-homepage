@@ -1,112 +1,130 @@
+/* 공통 초기화 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 /* 네비게이션 */
 nav {
-  background: rgb(219, 219, 219);
-}
-.nav-container {
-  max-width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
+  background-color: #ffffff;
 }
 
-.nav-container .logo {
-  flex-shrink: 0;
-  height: 80px;
-}
-.nav-container .nav-menu {
-  list-style: none;
+.nav-container {
   display: flex;
-  flex-wrap: nowrap;
-  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  max-width: 100%;
+  position: relative;
 }
-.nav-container .nav-item {
-  background: rgb(100, 100, 100);
-  white-space: nowrap;
-  min-width: 100px;
-  flex: 1;
+
+.university-logo {
   height: 80px;
+  flex-shrink: 0;
 }
-.nav-container .nav-item:hover {
-  background: rgb(110, 110, 150);
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  flex: 1;
+  flex-wrap: nowrap;
 }
-.nav-container .nav-item:active {
-  background: rgb(10, 10, 10);
+.nav-menu .desktop {
+  display: flex ; 
 }
-.nav-container .nav-link {
-  color: white;
-  text-decoration: none;
+
+.nav-menu .mobile {
+  display: none ;
+}
+.nav-item {
+  flex: 1;
+  min-width: 100px;
+  height: 80px;
+  background-color: #0057b7;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  font-size: 2rem;
 }
 
-/* 모바일 nav */
+.nav-item:hover {
+  background: #0066cc;
+}
+
+.nav-item:active {
+  background: #002244;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 모바일용 햄버거 버튼 */
 .nav-toggle {
   font-size: 35px;
-  display: none;
   background: none;
   border: none;
   cursor: pointer;
   color: #333;
+  display: none;
 }
 
-/* 배너 기본 */
+/* 배너 */
 #banner {
   margin-top: 20px;
   text-align: center;
 }
 
 #banner-container {
-  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
-  position: relative;
   background: #ddd;
   border-radius: 10px;
+  position: relative;
+  width: 100%;
 }
 
 .slide-wrap {
   display: flex;
+  width: max-content;
   position: relative;
-  width: 9999px;
 }
 
 .slide {
+  flex-shrink: 0;
   width: 100%;
   max-width: 900px;
-  flex-shrink: 0;
 }
 
 .slide img {
   width: 100%;
   height: 700px;
-  display: block;
   border-radius: 10px;
+  display: block;
 }
 
-/* 버튼 */
+/* 슬라이드 버튼 */
 #prev,
 #next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(50, 50, 50, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   padding: 10px;
   border: none;
@@ -117,12 +135,13 @@ nav {
 
 #prev:hover,
 #next:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 #prev {
   left: 10px;
 }
+
 #next {
   right: 10px;
 }
@@ -130,16 +149,13 @@ nav {
 /* 팝업 */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  display: none;
 }
+
 .popup-content {
   background: white;
   padding: 20px;
@@ -148,30 +164,67 @@ nav {
 
 /* 반응형 */
 @media (max-width: 768px) {
-  .nav-container {
-    position: relative;
+  .nav-toggle {
+    display: block;
   }
 
   .nav-menu {
-    display: none;
     flex-direction: column;
-    background: #666;
-    width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
+    background: #666;
+    width: 100%;
+    display: none;
     z-index: 1000;
   }
 
   .nav-item {
-    text-align: center;
-    padding: 10px 0;
     height: auto;
+    padding: 10px 0;
+    text-align: center;
   }
-  .nav-toggle {
-    display: block;
-  }
+
   .nav-link {
     font-size: 1.5rem;
+  }
+}
+
+/* 🌙 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+
+  nav {
+    background-color: #1f1f6f;
+  }
+
+  .nav-item {
+    background-color: #2a2a2a;
+  }
+
+  .nav-item:hover {
+    background-color: #444;
+  }
+
+  .nav-link {
+    color: #f5f5f5;
+  }
+
+  #banner-container {
+    background-color: #222;
+  }
+
+  #prev,
+  #next {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+
+  .popup-content {
+    background: #2a2a2a;
+    color: #fff;
   }
 }
