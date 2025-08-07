@@ -7,15 +7,24 @@ const slideCount = $(".slide").length;
 
 $(function () {
   initSlider();
+  $(".nav-toggle").click(function () {
+    $(".nav-menu").slideToggle(300);
+  });
+  $(window).resize(function () {
+    if ($(window).width() > 768) {
+      $(".nav-menu").show(); 
+    } else {
+      $(".nav-menu").hide(); 
+    }
+  });
 });
 
 function initSlider() {
-  slideWrap.append($(".slide:first").clone()); 
+  slideWrap.append($(".slide:first").clone());
   $("#next").click(() => moveSlide(1));
   $("#prev").click(() => moveSlide(-1));
   timer = setInterval(() => moveSlide(1), 3000);
 }
-
 
 function moveSlide(direction) {
   slideIndex += direction;
@@ -32,4 +41,3 @@ function moveSlide(direction) {
       }
     });
 }
-
