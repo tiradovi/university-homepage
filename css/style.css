@@ -9,22 +9,38 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   color: #000;
+  margin-top: 80px;
 }
 
 /* 네비게이션 */
 nav {
-  background-color: #ffffff;
+  background-color: #eaeaea;
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  z-index: 1000; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: auto;
+  height: 80px;
   max-width: 100%;
   position: relative;
+  border-bottom: 2px solid gainsboro;
 }
-
+.nav-container > a {
+  height: 80px;
+}
+.nav-container > a:hover {
+  background-color: #dadada;
+}
+.nav-container > a:active {
+  background-color: #cacaca;
+}
 .university-logo {
   height: 80px;
   flex-shrink: 0;
@@ -34,24 +50,15 @@ nav {
   display: flex;
   list-style: none;
   flex: 1;
-  flex-wrap: nowrap;
-}
-.nav-menu .desktop {
-  display: flex ; 
 }
 
-.nav-menu .mobile {
-  display: none ;
-}
 .nav-item {
   flex: 1;
   min-width: 100px;
   height: 80px;
   background-color: #0057b7;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid gray;
 }
 
 .nav-item:hover {
@@ -59,23 +66,24 @@ nav {
 }
 
 .nav-item:active {
-  background: #002244;
+  background: #0022aa;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 
 /* 모바일용 햄버거 버튼 */
 .nav-toggle {
-  font-size: 35px;
+  font-size: 50px;
   background: none;
   border: none;
   cursor: pointer;
@@ -162,12 +170,8 @@ nav {
   border-radius: 5px;
 }
 
-/* 반응형 */
+/* 모바일 크기 */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-
   .nav-menu {
     flex-direction: column;
     position: absolute;
@@ -179,18 +183,22 @@ nav {
     z-index: 1000;
   }
 
+  .nav-toggle {
+    display: block;
+  }
+
   .nav-item {
-    height: auto;
-    padding: 10px 0;
-    text-align: center;
+    border: 1px solid gray;
   }
 
   .nav-link {
-    font-size: 1.5rem;
+    height: 80px;
+    font-size: 1.8rem;
+    font-weight: bold;
   }
 }
 
-/* 🌙 다크 모드 대응 */
+/* 🌙 다크 모드 */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #121212;
@@ -204,9 +212,11 @@ nav {
   .nav-item {
     background-color: #2a2a2a;
   }
-
   .nav-item:hover {
     background-color: #444;
+  }
+  .nav-item:active {
+    background-color: #222;
   }
 
   .nav-link {
@@ -215,8 +225,14 @@ nav {
 
   #banner-container {
     background-color: #222;
+    border-bottom: 2px solid #888;
   }
-
+  .nav-container > a:hover {
+    background-color: #1f1f4f;
+  }
+  .nav-container > a:active {
+    background-color: #1f1f2f;
+  }
   #prev,
   #next {
     background: rgba(255, 255, 255, 0.2);

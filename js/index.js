@@ -1,79 +1,82 @@
 let slideIndex = 0;
-let timer;
 
-const slideWrap = $(".slide-wrap");
-const slideWidth = $(".slide").width();
-const slideCount = $(".slide").length;
-const logoImg = $("#university-logo");
+const slideWrap = $("#slide-wrap");
 
 $(function () {
-  initSlider();
-  setupNavToggle();
-  setupResizeHandler();
-  applyLogoByMode();
-
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      applyLogoByMode();
-    });
+  initialize();
+  $("#nav-toggle").click(navigationToggle);
 });
 
-// 슬라이드 초기화
-function initSlider() {
+// 페이지 초기화
+function initialize() {
+  initializeSlider();
+  setupResizeEvents();
+  colorModeLogoChange();
+  colorModeChangeListener();
+}
+
+function initializeSlider() {
   slideWrap.append($(".slide:first").clone());
   $("#next").click(() => moveSlide(1));
   $("#prev").click(() => moveSlide(-1));
-  timer = setInterval(() => moveSlide(1), 3000);
+  setInterval(() => moveSlide(1), 4000);
 }
 
 function moveSlide(direction) {
   slideIndex += direction;
   slideWrap.stop(true, true).animate(
     {
-      marginLeft: -slideIndex * slideWidth,
+      marginLeft: -slideIndex * $(".slide").width(),
     },
     500,
     function () {
-      if (slideIndex >= slideCount) {
+      if (slideIndex >= $(".slide").length) {
         slideIndex = 0;
         slideWrap.css("margin-left", 0);
       } else if (slideIndex < 0) {
-        slideIndex = slideCount - 1;
-        slideWrap.css("margin-left", -slideIndex * slideWidth);
+        slideIndex = $(".slide").length - 1;
+        slideWrap.css("margin-left", -slideIndex * $(".slide").width());
       }
     }
   );
 }
 
-function setupNavToggle() {
-  $(".nav-toggle").click(() => {
-    if ($(window).width() <= 768) {
-      $(".nav-menu").slideToggle(300);
-    }
-  });
+function navigationToggle() {
+  $("#nav-menu").toggleClass("mobile-open");
+  $(window).trigger("resize");
 }
 
-function setupResizeHandler() {
+function setupResizeEvents() {
   $(window)
     .resize(() => {
-      const windowWidth = $(window).width();
+      const navMenu = $("#nav-menu");
 
-      if (windowWidth > 768) {
-        $(".nav-menu").addClass("desktop").removeClass("mobile");
+      if ($(window).width() > 768) {
+        navMenu.removeClass("mobile-open");
+        navMenu.css("display", "flex");
       } else {
-        $(".nav-menu").addClass("mobile").removeClass("desktop");
+        if (!navMenu.hasClass("mobile-open")) {
+          navMenu.css("display", "none");
+        } else {
+          navMenu.css("display", "flex");
+        }
       }
     })
     .trigger("resize");
 }
 
-// 다크모드/라이트모드에 따른 로고 변경
-function applyLogoByMode() {
+function colorModeLogoChange() {
   const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (isDark) {
-    logoImg.attr("src", "img/namelogo_dark.png");
-  } else {
-    logoImg.attr("src", "img/namelogo.png");
-  }
+  $("#university-logo").attr(
+    "src",
+    isDark ? "img/namelogo_dark.png" : "img/namelogo.png"
+  );
+}
+
+function colorModeChangeListener() {
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      colorModeLogoChange();
+    });
 }
