@@ -9,8 +9,12 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <link rel="icon" type="image/png" href="../img/logo/logo.png" />
   </head>
   <body>
     <!-- 네비게이션 -->
@@ -19,7 +23,7 @@
         <!-- 로고 -->
         <a href="../index.html">
           <img
-            src="../img/namelogo.png"
+            src="../img/logo/namelogo.png"
             alt="대학로고"
             class="university-logo"
             id="university-logo"
@@ -46,13 +50,443 @@
     <div class="introduce-container">
       <div class="tab-menu">
         <button class="tab-btn active" data-tab="intro">학교 소개</button>
-        <button class="tab-btn" data-tab="history">연혁</button>
-        <button class="tab-btn" data-tab="vision">비전</button>
+        <button class="tab-btn" data-tab="timeline">연혁</button>
+        <button class="tab-btn" data-tab="principal">학장</button>
       </div>
 
-      <div class="tab-content active" id="intro">학교 소개 내용</div>
-      <div class="tab-content" id="history">연혁 내용</div>
-      <div class="tab-content" id="vision">비전 내용</div>
+      <div class="tab-content active" id="intro">
+        <img src="../img/university.png" alt="대학사진" class="univ-img" />
+
+        <div class="intro-title-grid">
+          <div class="intro-title-btn active" data-index="0">
+            OO 대학의 이념과 비전
+          </div>
+          <div class="intro-title-btn" data-index="1">역사와 성장</div>
+          <div class="intro-title-btn" data-index="2">교육과 연구</div>
+          <div class="intro-title-btn" data-index="3">국제화 및 교류</div>
+          <div class="intro-title-btn" data-index="4">캠퍼스 및 시설</div>
+          <div class="intro-title-btn" data-index="5">사회적 책임과 미래</div>
+        </div>
+
+        <div>
+          <div class="intro-content active">
+            <p>
+              우리 대학은 "진리, 창의, 봉사"라는 세 가지 핵심 이념을 바탕으로,
+              전인적 인재 양성과 지속 가능한 사회 발전에 기여하는 것을 목표로
+              설립되었습니다.
+            </p>
+
+            <p>
+              <strong>진리</strong>는 학문적 탐구를 통해 세상의 본질을 이해하고
+              진실을 밝혀내려는 지적 열정을 의미하며, <br />
+              <strong>창의</strong>는 기존의 틀에 얽매이지 않고 새로운 사고와
+              혁신을 통해 문제를 해결하는 능력을, <br />
+              <strong>봉사</strong>는 자신이 가진 역량을 타인을 위해 나누고 함께
+              성장하는 공동체 정신을 뜻합니다.
+            </p>
+
+            <p>
+              우리 대학은 이러한 이념 아래, 빠르게 변화하는 21세기 글로벌 사회에
+              대응할 수 있는 융합형 인재, 실천적 리더, 그리고 윤리적 시민을
+              양성하고자 합니다. 학생들은 학문적인 깊이뿐 아니라, 다문화적
+              이해력, 협업 능력, 창의적 문제해결력을 키울 수 있도록 설계된
+              교과과정과 다양한 비교과 프로그램에 참여하게 됩니다.
+            </p>
+
+            <p>
+              또한, 우리 대학은 단순한 지식 전달을 넘어서, 지속 가능하고
+              정의로운 사회를 위한 책임 있는 대학의 역할을 수행하고자 합니다.
+              이를 위해 탄소 중립 캠퍼스 구현, 지역 사회와의 연계 프로그램,
+              글로벌 네트워크 강화를 통해 국내외 사회문제 해결에 적극적으로
+              나서고 있습니다.
+            </p>
+            <p>
+              미래를 선도하는 교육기관으로서, 우리 대학은 다음 세 가지 비전을
+              중심으로 발전해 나가고자 합니다. 창의적 지성인을 양성하는 교육
+              혁신의 중심대학 세계 수준의 연구력을 갖춘 글로벌 경쟁력 확보
+              사람과 사회를 잇는 지속 가능한 공동체 구축 우리 대학은 앞으로도
+              교육과 연구의 경계를 넘어서, 더 나은 세상을 만드는 데 기여하는
+              열린 대학, 포용하는 대학, 혁신하는 대학이 될 것을 약속드립니다.
+            </p>
+          </div>
+          <div class="intro-content">
+            <p>
+              우리 대학은 <strong>1950년대 중반</strong>, 한국 사회의 근대화와
+              지식 기반 사회로의 전환이 본격화되던 시기에 설립되었습니다. 전쟁의
+              상흔 속에서도 교육의 가치를 지켜내고자 했던 선구자들의 노력으로 첫
+              걸음을 뗀 본교는, 당시 100여 명의 학생과 4개 학과로
+              출발하였습니다. 열악한 교육 여건 속에서도 "사람을 키우는 것이
+              나라를 살리는 길이다"라는 굳건한 철학 아래, 교수진과 학생 모두가
+              열정으로 캠퍼스를 채웠습니다.
+            </p>
+
+            <p>
+              1960~70년대에 들어서면서, 산업화에 따른 전문 인력의 수요 증가에
+              발맞추어 본교는
+              <strong>공학, 자연과학, 경제학 분야로의 학제 확대</strong>를
+              이루어냈고, 이와 함께 캠퍼스도 확장되어 오늘날 대학 본관의 기틀이
+              잡혔습니다. 1980년대에는 민주화의 흐름 속에서
+              <strong>자율과 책임에 기반한 학풍</strong>을 형성하며 학문적
+              자립과 연구 중심 교육기관으로서의 전환을 이루었습니다.
+            </p>
+
+            <p>
+              1990년대부터는 <strong>글로벌화의 물결</strong>에 맞서 국제 교류를
+              적극적으로 추진하였습니다. 미국, 유럽, 아시아의 유수 대학들과
+              교환학생 프로그램을 시작하고, 전 강의의 영어 병행 수업 확대, 복수
+              전공 및 융합 전공 신설을 통해 다양성과 창의성을 중시하는 교육
+              패러다임을 선도해왔습니다.
+            </p>
+
+            <p>
+              2000년대에 들어서는 정보화와 디지털 교육 혁신에 집중하며,
+              <strong>스마트 캠퍼스</strong>를 구축하고, 교수학습지원센터와
+              온라인 강의 플랫폼을 통해 언제 어디서든 학습이 가능한 환경을
+              조성하였습니다. 이 시기에 대학원 및 전문대학원도 크게 확대되어
+              연구 중심 대학으로서의 위상도 공고히 하였습니다.
+            </p>
+
+            <p>
+              최근에는 <strong>AI, 빅데이터, 탄소중립, 지속 가능성</strong> 등
+              미래 사회의 핵심 키워드에 맞춰 교육과 연구 역량을 집중하고
+              있습니다. 특히 인공지능 융합대학, 지속가능발전센터,
+              지역사회연계센터 등을 설립하여 사회적 책임과 혁신적 사고를 동시에
+              실현해 나가고 있습니다.
+            </p>
+
+            <p>
+              현재 본교는 15개 단과대학, 80여 개의 전공과 수천 명의 학생이 함께
+              어우러진 교육 공동체로 성장하였으며, 국내는 물론 세계 여러 나라의
+              대학 및 기관들과 파트너십을 맺고 활발히 교류하고 있습니다.
+            </p>
+
+            <p>
+              우리 대학의 성장은 단순한 규모의 확장을 넘어,
+              <strong
+                >교육의 질, 연구의 깊이, 사회적 책임의 실천이라는 세 가지
+                축</strong
+              >을 중심으로 이뤄졌습니다. 앞으로도 본교는 “변화에 능동적으로
+              대응하고, 본질을 잃지 않는 교육기관”으로서, 다음 세대가 꿈을
+              이루고 사회에 긍정적인 영향을 끼칠 수 있도록 끊임없이 나아갈
+              것입니다.
+            </p>
+          </div>
+          <div class="intro-content">
+            <p>
+              우리 대학은 학생 개개인의 잠재력을 최대한 발휘할 수 있도록 설계된
+              <strong>맞춤형 교육과정</strong>과
+              <strong>글로벌 수준의 연구 환경</strong>을 제공합니다.
+            </p>
+
+            <p>
+              교육 측면에서는 학문 간 경계를 허무는
+              <strong>융복합 교육</strong>을 강화하고 있으며, 다양한 전공 간의
+              협력 프로그램과 공동 프로젝트를 통해 창의적 사고와 문제 해결
+              능력을 키울 수 있도록 돕고 있습니다. 특히,
+              <strong>AI, 데이터 사이언스, 지속가능성</strong> 등 미래 사회에
+              필요한 핵심 역량을 중심으로 한 교과 과정은 학생들의 직무 적응력과
+              진로 다양성을 크게 향상시키고 있습니다.
+            </p>
+
+            <p>
+              또한, <strong>Flipped Learning</strong>,
+              <strong>MOOC</strong> 기반의 온라인·오프라인 혼합 수업 등 다양한
+              교수법을 적극적으로 도입하여 학생 중심의 학습 환경을 조성하고
+              있습니다. 교수진은 최신 교육 기술을 활용하여 수업의 질을
+              향상시키며, 학생 개개인의 학습 스타일을 반영한 피드백 중심 교육을
+              실현하고 있습니다.
+            </p>
+
+            <p>
+              연구 분야에서도 우리 대학은
+              <strong
+                >국가연구개발사업, 기업체 공동과제, 국제 협력 프로젝트</strong
+              >
+              등을 활발히 수행하고 있으며, 인문사회부터 공학·의과학에 이르기까지
+              전 분야에 걸쳐 우수한 연구 성과를 창출하고 있습니다.
+            </p>
+
+            <p>
+              캠퍼스 내에는 다수의 <strong>전문 연구소</strong>와
+              <strong>산학연 클러스터</strong>가 위치하고 있어, 연구와 실무가
+              유기적으로 연결되며, 지역사회 및 산업계와의 연계를 통해 실질적인
+              사회적 영향력을 확대하고 있습니다.
+            </p>
+
+            <p>
+              특히, 글로벌 연구 협력 강화를 위해 유럽, 미국, 아시아 주요 대학 및
+              연구기관과
+              <strong>공동연구·교환연구원 프로그램</strong>을 운영하고 있으며,
+              학생들도 다양한 국제 연구 프로젝트에 참여할 수 있는 기회를 갖게
+              됩니다.
+            </p>
+
+            <p>
+              우리 대학은 앞으로도
+              <strong>지식의 생산자이자 전달자</strong>로서의 역할을 지속하며,
+              학생들이 전공 분야에서 전문성을 갖추고, 나아가
+              <strong>세계 시민으로서의 책임감과 윤리의식</strong>을 함께 배양할
+              수 있도록 노력하겠습니다.
+            </p>
+          </div>
+          <div class="intro-content">
+            <p>
+              우리 대학은 <strong>글로벌 시대를 선도하는 인재 양성</strong>을
+              위해, 국제화를 핵심 전략으로 삼고 세계 유수의 대학 및 연구기관과의
+              활발한 교류와 협력을 추진하고 있습니다.
+            </p>
+
+            <p>
+              현재까지 미국, 캐나다, 영국, 프랑스, 독일, 일본, 중국, 베트남 등
+              전 세계 <strong>40여 개국 200여 개 대학</strong> 및 기관과 학술
+              교류 협정을 체결하였으며, 이를 기반으로
+              <strong>교환학생, 복수학위, 단기연수, 공동연구 프로그램</strong>을
+              운영하고 있습니다.
+            </p>
+
+            <p>
+              매년 수백 명의 학생들이 교환학생 프로그램을 통해 해외에서 학업을
+              수행하며, 외국인 학생 역시 본교로 유학 와 다양한 문화 속에서 함께
+              성장하고 있습니다. 교환학생 외에도 여름 및 겨울 계절학기 프로그램,
+              해외 인턴십, 글로벌 자원봉사 등의 기회를 통해 학생들은
+              세계시민으로서의 시야와 소양을 키워나가고 있습니다.
+            </p>
+
+            <p>
+              특히, <strong>복수학위(Double Degree) 프로그램</strong>은 파트너
+              대학과의 협약을 통해 일정 기간 이상 양교에서 수학한 후 양측 학위를
+              모두 취득할 수 있도록 설계되어, 경쟁력 있는 국제 전문 인재를
+              양성하는 데 큰 역할을 하고 있습니다.
+            </p>
+
+            <p>
+              외국인 유학생 유치를 위해서는
+              <strong>글로벌 캠퍼스 환경 조성</strong>에 집중하고 있으며, 영어
+              및 제2외국어 강의 확대, 유학생 지원 전담 부서 운영, 생활·학업
+              적응을 위한 멘토링 프로그램 등을 제공하고 있습니다. 다양한 국적을
+              가진 학생들이 함께 어우러져 공부하며 글로벌 네트워크를 자연스럽게
+              형성하고 있습니다.
+            </p>
+
+            <p>
+              또한, 교직원과 교수진의 <strong>국제 연수 및 연구 교류</strong>도
+              활발히 이루어지고 있어, 교육 및 연구의 글로벌 스탠다드를
+              지속적으로 반영하고 있습니다. 정기적인 국제 학술대회 개최 및 참가,
+              해외 연구비 유치, 공동 저술 등도 활발히 이루어지고 있습니다.
+            </p>
+
+            <p>
+              우리 대학은 앞으로도 <strong>경계를 허무는 열린 교육</strong>과
+              <strong>세계와 연결되는 지식 생태계</strong>를 실현하며, 학생들이
+              국제 사회 속에서 능동적으로 활동할 수 있는
+              <strong>진정한 글로벌 리더</strong>로 성장할 수 있도록 지원할
+              것입니다.
+            </p>
+          </div>
+          <div class="intro-content">
+            <p>
+              우리 대학은 <strong>학생 중심의 학습 및 생활 환경 조성</strong>을
+              목표로, 아름답고 효율적인 캠퍼스와 최첨단 시설을 지속적으로
+              확충하고 있습니다. 총 50만 평에 달하는 넓은 부지에는 강의동,
+              연구동, 기숙사, 체육관, 도서관 등 다양한 공간이 조화롭게 배치되어
+              있으며, 자연과 건축이 어우러진 친환경적 캠퍼스 설계로 높은
+              만족도를 자랑합니다.
+            </p>
+
+            <p>
+              <strong>중앙 도서관</strong>은 100만 권 이상의 장서를 보유하고
+              있으며, 최신 전자자료와 멀티미디어 콘텐츠를 갖춘 디지털 정보실,
+              조용한 학습을 위한 개인 열람실, 협업 학습을 위한 그룹 스터디룸 등
+              다양한 공간으로 구성되어 있습니다. 24시간 개방 구역도 마련되어
+              있어 학생들의 자율적인 학습을 적극적으로 지원합니다.
+            </p>
+
+            <p>
+              <strong>스마트 강의실</strong>은 전면 전자칠판, 무선 인터넷, 자동
+              녹화 시스템, 원격 강의 설비 등을 갖추고 있어, 하이브리드 수업 및
+              비대면 교육 환경에도 완벽하게 대응하고 있습니다. 또한 실험실과
+              실습실은 최신 장비를 갖춘 전공 맞춤형 공간으로, 이론과 실습을
+              효과적으로 병행할 수 있도록 설계되었습니다.
+            </p>
+
+            <p>
+              <strong>기숙사 시설</strong>은 내국인과 외국인 학생 모두를 위한
+              다양한 유형의 방을 제공하며, 각 방에는 냉난방 시설, Wi-Fi, 샤워실
+              및 학습 책상이 완비되어 있습니다. 공용 세탁실, 휴게실, 간이 매점
+              등 생활 편의 공간도 마련되어 있으며, RA(사감) 제도 운영으로
+              안전하고 쾌적한 환경이 유지되고 있습니다.
+            </p>
+
+            <p>
+              <strong>학생회관</strong>에는 학생 식당, 북카페, 편의점, 은행,
+              상담센터, 진로개발센터 등 학생 복지에 필요한 다양한 시설이
+              집약되어 있으며, 각종 동아리실과 커뮤니티 라운지를 통해 학생들의
+              자율적인 활동을 적극적으로 장려하고 있습니다.
+            </p>
+
+            <p>
+              <strong>종합체육관</strong>과 <strong>야외 운동장</strong>은 체력
+              단련 및 체육 교육은 물론, 다양한 축제와 행사의 중심 공간으로
+              활용됩니다. 실내 수영장, 헬스장, 요가룸, 다목적 구기 종목 공간
+              등이 마련되어 있어 학생들의 건강 증진에도 기여하고 있습니다.
+            </p>
+
+            <p>
+              캠퍼스 전역에는 <strong>무선 인터넷 환경</strong>이 구축되어
+              있으며, QR 코드 기반 출입 시스템, 스마트 출결 관리, AI 기반 학습
+              분석 서비스 등 <strong>스마트 캠퍼스</strong> 인프라를 통해 교육의
+              효율성을 극대화하고 있습니다.
+            </p>
+
+            <p>
+              우리 대학은 앞으로도 지속적인 투자와 혁신을 통해,
+              <strong>미래 교육과 연구를 선도할 수 있는 최적의 환경</strong>을
+              구축해 나갈 것입니다.
+            </p>
+          </div>
+          <div class="intro-content">
+            <p>
+              우리 대학은 교육기관의 본분을 넘어,
+              <strong>사회적 책임을 다하는 대학</strong>으로서 지역사회와 인류의
+              지속 가능한 미래에 기여하고자 노력하고 있습니다. 단순한 지식
+              전달을 넘어, 정의롭고 공정한 사회를 만들기 위한 실천적 행동과
+              구조적 변화에 앞장서며, 이를 위한 제도적 기반과 문화 조성을
+              적극적으로 추진 중입니다.
+            </p>
+
+            <p>
+              먼저, <strong>지역사회와의 상생</strong>을 위해 다양한
+              <strong>사회 공헌 프로그램</strong>을 운영하고 있습니다. 예를
+              들어, 대학 내 재능기부 동아리를 통해 지역 아동을 위한 방과 후 학습
+              지원, 어르신들을 위한 스마트폰 교육, 다문화 가정을 위한 통역 봉사
+              등이 활발히 진행되고 있으며, 연간 수천 명의 지역 주민이 대학과의
+              연계를 통해 실질적인 도움을 받고 있습니다.
+            </p>
+
+            <p>
+              또한, 환경 위기에 대응하기 위해
+              <strong>탄소 중립 캠퍼스 구축</strong>을 핵심 과제로 설정하고,
+              태양광 발전 시스템 설치, 친환경 건축 리모델링, 일회용품 사용
+              최소화 캠페인 등을 통해 지속 가능한 생태 환경 조성에 앞장서고
+              있습니다. 모든 학과의 교양과정에
+              <strong>기후 변화와 지속 가능성 관련 교과목</strong>을 포함시켜,
+              전 학문 분야에서 환경 문제에 대한 책임감을 함양하도록 교육하고
+              있습니다.
+            </p>
+
+            <p>
+              우리 대학은 <strong>윤리적 시민 의식과 글로벌 책임의식</strong>을
+              갖춘 인재 양성을 추구합니다. 이를 위해 학생들은 학문적 지식뿐만
+              아니라 공공의 이익, 인권, 평등, 젠더 감수성, 디지털 윤리 등 현대
+              사회가 직면한 다양한 사회적 문제에 대한 인식을 기르는 교육을 받게
+              됩니다.
+            </p>
+
+            <p>
+              미래 지향적 관점에서,
+              <strong
+                >AI, 빅데이터, 기후기술, 바이오헬스 등 첨단 융합 분야</strong
+              >의 연구와 창업을 적극 지원하고 있으며, 대학 내
+              <strong>사회혁신 연구소</strong>와 <strong>윤리경영센터</strong>는
+              지속 가능한 사회를 위한 정책 연구와 실천을 병행하고 있습니다.
+            </p>
+
+            <p>
+              또한, 고등교육기관으로서의 사명을 다하기 위해
+              <strong>지속가능발전목표(SDGs)</strong>와 연계된 교육, 연구,
+              봉사활동을 체계화하고 있으며,
+              <strong>UN Academic Impact</strong>와 같은 국제 이니셔티브에도
+              적극 참여하고 있습니다.
+            </p>
+
+            <p>
+              우리 대학은 앞으로도
+              <strong>지속 가능하고 포용적인 미래 사회의 중심</strong>이 되기
+              위해, 변화에 유연하게 대응하고, 혁신과 책임을 겸비한 교육기관으로
+              발전해 나갈 것입니다. 사람과 사회, 기술과 자연이 조화롭게 공존하는
+              세상을 향해, 우리 대학은
+              <strong>지속 가능한 지식 공동체</strong>로서의 발걸음을 멈추지
+              않겠습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="timeline">
+        <div class="timeline-container">
+          <h2>연혁</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">1956</div>
+              <div class="timeline-content">
+                대학 설립 (초기 4개 학과, 100여 명의 학생으로 개교)
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1965</div>
+              <div class="timeline-content">
+                공학·자연과학계열 학과 신설, 캠퍼스 1차 확장
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1974</div>
+              <div class="timeline-content">
+                경제·경영계열 학과 추가 개설, 도서관 및 연구동 신축
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1981</div>
+              <div class="timeline-content">
+                민주화 운동 속 학내 자율화 정책 확대
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1987</div>
+              <div class="timeline-content">
+                대학원 설립, 연구 중심 대학으로의 전환 시작
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1995</div>
+              <div class="timeline-content">
+                해외 대학과 교류 협정 체결, 글로벌 프로그램 운영 개시
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2003</div>
+              <div class="timeline-content">
+                전자 행정 시스템 및 스마트 강의실 도입
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2010</div>
+              <div class="timeline-content">
+                융합전공 확대 및 복수전공 제도 정비
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2015</div>
+              <div class="timeline-content">
+                지속가능발전센터 설립, 사회공헌 활동 본격화
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2020</div>
+              <div class="timeline-content">
+                AI 융합대학 출범, 디지털 교육 혁신 강화
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2024</div>
+              <div class="timeline-content">
+                탄소중립 캠퍼스 구축 선언, 글로벌 네트워크 확대
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="principal">학장 내용</div>
     </div>
 
     <script src="../js/index.js"></script>

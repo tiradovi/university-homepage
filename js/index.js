@@ -70,12 +70,12 @@ function colorModeLogoChange() {
   if (window.location.pathname.includes("/page/")) {
     $("#university-logo").attr(
       "src",
-      isDark ? "../img/namelogo_dark.png" : "../img/namelogo.png"
+      isDark ? "../img/logo/namelogo_dark.png" : "../img/logo/namelogo.png"
     );
   } else {
     $("#university-logo").attr(
       "src",
-      isDark ? "img/namelogo_dark.png" : "img/namelogo.png"
+      isDark ? "img/logo/namelogo_dark.png" : "img/logo/namelogo.png"
     );
   }
 }

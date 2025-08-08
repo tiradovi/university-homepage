@@ -6,7 +6,7 @@
     <title>메인페이지</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="icon" type="image/png" href="img/logo/logo.png" />
   </head>
   <body>
     <!-- 네비게이션 -->
@@ -15,7 +15,7 @@
         <!-- 로고 -->
         <a href="index.html">
           <img
-            src="img/namelogo.png"
+            src="img/logo/namelogo.png"
             alt="대학로고"
             class="university-logo"
             id="university-logo"
@@ -23,7 +23,9 @@
         </a>
         <!-- 데스크탑 네비게이션 메뉴 -->
         <ul class="nav-menu" id="nav-menu">
-          <li class="nav-item"><a href="page/introduce.html" class="nav-link">학교소개</a></li>
+          <li class="nav-item">
+            <a href="page/introduce.html" class="nav-link">학교소개</a>
+          </li>
           <li class="nav-item"><a href="#" class="nav-link">학과소개</a></li>
           <li class="nav-item"><a href="#" class="nav-link">공지사항</a></li>
           <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
@@ -37,18 +39,18 @@
       </div>
     </nav>
 
-    <section id="banner">
-      <div id="banner-container">
+    <section class="banner">
+      <div class="banner-container">
         <button id="prev"><</button>
         <div class="slide-wrap" id="slide-wrap">
           <div class="slide">
-            <img src="img/banner1.png" alt="배너1" />
+            <img src="img/banner/banner1.png" alt="배너1" />
           </div>
           <div class="slide">
-            <img src="img/banner2.png" alt="배너2" />
+            <img src="img/banner/banner2.png" alt="배너2" />
           </div>
           <div class="slide">
-            <img src="img/banner3.png" alt="배너3" />
+            <img src="img/banner/banner3.png" alt="배너3" />
           </div>
         </div>
         <button id="next">></button>
