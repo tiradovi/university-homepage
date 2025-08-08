@@ -1,7 +1,6 @@
 $(function () {
   $(".tab-btn").click(introduceMenuTab);
   $(".intro-title-btn").click(introTitleTab);
-  
 });
 
 function introduceMenuTab() {

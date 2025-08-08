@@ -223,8 +223,9 @@ nav {
 .introduce-container .tab-content .intro-title-btn {
   border: 2px solid #2e64a1;
   border-radius: 50%;
-  background-color: #4a90e2;
-  color: white;
+  background-color: white;
+  color: #333;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,6 +316,52 @@ nav {
   line-height: 1.6;
   position: relative;
   bottom: -50px;
+}
+.introduce-container .tab-content .principal-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  display: flex;
+  gap: 30px;
+}
+.introduce-container .tab-content .principal-container .principal-photo {
+  width: 60%;
+  height: 60%;
+  border: 5px solid gainsboro;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+.introduce-container .tab-content .principal-container .principal-message {
+  max-width: 600px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #333;
+}
+.introduce-container .tab-content .principal-container .principal-message h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #004080;
+  border-left: 5px solid #004080;
+  padding-left: 10px;
+}
+.introduce-container .tab-content .principal-container .principal-message p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.introduce-container .tab-content .principal-container .principal-message span {
+  font-style: italic;
+  font-weight: 600;
+  color: #666;
+  text-align: right;
+  display: block;
+}
+.introduce-container .tab-content iframe {
+  display: block;
+  width: 80%;
+  min-height: 500px;
+  margin: 20px auto;
+  border: 1px solid black;
 }
 
 /* 모바일 크기 */

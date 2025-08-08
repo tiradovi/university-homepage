@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학부 및 학과 소개</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../img/logo/logo.png" />
+  </head>
+  <body>
+    <!-- 네비게이션 -->
+    <nav>
+      <div class="nav-container">
+        <!-- 로고 -->
+        <a href="../index.html">
+          <img
+            src="../img/logo/namelogo.png"
+            alt="대학로고"
+            class="university-logo"
+            id="university-logo"
+          />
+        </a>
+        <!-- 데스크탑 네비게이션 메뉴 -->
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="introduce.html" class="nav-link">학교소개</a>
+          </li>
+          <li class="nav-item">
+            <a href="colleges.html" class="nav-link">학부 및 학과 소개</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">공지사항</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">자료실</a></li>
+          <li class="nav-item">
+            <a href="page/login.html" class="nav-link">로그인</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+        </ul>
+        <!-- 모바일 네비게이션 메뉴 -->
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+      </div>
+    </nav>
+
+    <div class="department-container">
+      <div class="department-college" data-college="humanities">인문 대학</div>
+      <div class="department-list" id="humanities" style="display: none">
+        <ul>
+          <li>국어국문학과</li>
+          <li>영어영문학과</li>
+          <li>철학과</li>
+        </ul>
+      </div>
+
+      <div class="department-college" data-college="engineering">공과 대학</div>
+      <div class="department-list" id="engineering" style="display: none">
+        <ul>
+          <li>컴퓨터공학과</li>
+          <li>기계공학과</li>
+          <li>전기전자공학과</li>
+        </ul>
+      </div>
+
+      <div class="department-college" data-college="social">사회과학 대학</div>
+      <div class="department-list" id="social" style="display: none">
+        <ul>
+          <li>정치외교학과</li>
+          <li>심리학과</li>
+          <li>사회학과</li>
+        </ul>
+      </div>
+      <div class="department-college">경영 대학</div>
+      <div class="department-college">건축 대학</div>
+      <div class="department-college">스포츠 대학</div>
+    </div>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/colleges.js"></script>
+  </body>
+</html>
