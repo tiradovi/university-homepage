@@ -437,13 +437,13 @@ nav {
   margin: 20px auto;
   border: 1px solid black;
 }
-/** 학부 및 학과 소개 **/
+/** 대학 및 학과 소개 **/
 .college-container {
   max-width: 1200px;
   margin: auto;
 }
 .college-container .college-department {
-  margin: 20px 0;
+  margin: 30px 0;
   padding: 15px;
   background-color: #e9f1ff;
   border: 1px solid #ccc;
@@ -497,47 +497,78 @@ nav {
 .college-container .department-list li:active {
   background-color: #acd1f8;
 }
-/* 모달 배경 */
+/* 학과 모달창 */
 .modal {
-  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  z-index: 3000;
+
+  display: none;
   justify-content: center;
   align-items: center;
-  z-index: 3000;
+
+  background: rgba(0, 0, 0, 0.5);
 }
 
-/* 모달 활성화 시 보이기 */
 .modal.show {
   display: flex;
 }
 
-/* 모달 컨텐츠 */
-.modal-content {
-  background: white;
-  padding: 20px;
-  max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
-  border-radius: 8px;
+.modal .modal-content {
   position: relative;
+
+  width: 80%;
+  height: 70%;
+  max-width: 1000px;
+  max-height: 800px;
+  border-radius: 8px;
+
+  background: rgba(216, 216, 216);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
+  overflow-y: auto;
+}
+.modal .modal-content .modal-head {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #acd1f8;
+}
+.modal .modal-content .modal-head .modal-title {
+  margin: 5px 15px;
+
+  font-size: 40px;
+  font-weight: bold;
+}
+.modal .modal-content .modal-head .modal-close {
+  margin: 5px 15px;
+  border: none;
+  background: none;
+
+  font-size: 40px;
+
+  cursor: pointer;
+}
+.modal .modal-content .modal-body {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #aeccff;
+  border-radius: 5px;
+
+  background: white;
+}
+.modal .modal-content .modal-body h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.modal .modal-content .modal-body h3 {
+  text-align: center;
+  margin: 20px;
+}
+.modal .modal-content .modal-body li {
+  list-style: none;
 }
 
-/* 닫기 버튼 */
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-}
 /* 모바일 크기 */
 @media (max-width: 768px) {
   .nav-container .nav-menu {

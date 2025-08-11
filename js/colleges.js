@@ -1,12 +1,7 @@
 $(function () {
   $(".college-department").click(collegeTab);
   $("[id^='department-']").click(departmentModal);
-  $("#modal-close").click(() => $("#department-modal").removeClass("show"));
-  $("#department-modal").click(function (e) {
-    if (this === e.target) {
-      $(this).removeClass("show");
-    }
-  });
+  $("#department-modal").click(closeModal);
 });
 
 function collegeTab() {
@@ -21,16 +16,22 @@ function collegeTab() {
 
 function departmentModal() {
   const collegeId = $(this).closest(".department-list").attr("id");
+  if (!collegeId) return;
   const departmentId = $(this).attr("id").replace("department-", "");
-
+  const departmentName = $(this).text().trim();
   const url = `content/${collegeId}/${departmentId}.html`;
 
-  $("#modal-body").html("<p>로딩 중...</p>");
   $("#department-modal").addClass("show");
+  $("#modal-title").html(`${departmentName}`);
 
   $("#modal-body").load(url, function (response, status) {
     if (status === "error") {
       $("#modal-body").html("<p>정보를 불러오는 데 실패했습니다.</p>");
     }
   });
+}
+function closeModal(e) {
+  if (e.target === this || $(e.target).hasClass("modal-close")) {
+    $(this).removeClass("show");
+  }
 }
