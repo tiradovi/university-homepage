@@ -1,10 +1,11 @@
 let slideIndex = 0;
-
 const slideWrap = $("#slide-wrap");
 
 $(function () {
   initialize();
   $("#nav-toggle").click(navigationToggle);
+  $("#open-login-popup").click(openLoginPopup);
+  $("#move-register").click(goToSignup);
 });
 
 // 페이지 초기화
@@ -65,4 +66,31 @@ function colorModeChangeListener() {
     .addEventListener("change", () => {
       colorModeLogoChange();
     });
+}
+
+function openLoginPopup(e) {
+  e.preventDefault();
+
+  const popupWidth = 500;
+  const popupHeight = 600;
+
+  const left = window.screen.width / 2 - popupWidth / 2;
+  const top = window.screen.height / 2 - popupHeight / 2;
+
+  let url;
+  if (window.location.pathname.includes("/page/")) {
+    url = "login.html";
+  } else {
+    url = "page/login.html";
+  }
+
+  window.open(
+    url,
+    "loginPopup",
+    `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=no,scrollbars=no`
+  );
+}
+
+function goToSignup() {
+  window.location.href = "register.html";
 }

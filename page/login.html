@@ -13,12 +13,30 @@
     <link rel="icon" type="image/png" href="../img/logo/logo.png" />
   </head>
   <body>
+    <div class="login-container">
+      <img src="../img/logo/namelogo.png " alt="로고" class="logo" id="logo" />
 
+      <div class="form">
+        <input
+          type="text"
+          class="user-id"
+          id="user-id"
+          placeholder="아이디"
+          required
+        />
+        <input
+          type="password"
+          class="user-password"
+          id="user-password"
+          placeholder="비밀번호"
+          required
+        />
 
+        <button class="login-btn" id="login-btn">로그인</button>
+        <button class="signup-btn" id="signup-btn">회원가입</button>
+      </div>
+    </div>
 
-
-    
-    <script src="../js/index.js"></script>
     <script src="../js/login.js"></script>
   </body>
 </html>
