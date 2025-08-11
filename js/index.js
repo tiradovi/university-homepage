@@ -10,7 +10,6 @@ $(function () {
 // 페이지 초기화
 function initialize() {
   initializeSlider();
-  ResizeEventsListener();
   colorModeLogoChange();
   colorModeChangeListener();
 }
@@ -43,26 +42,6 @@ function moveSlide(direction) {
 
 function navigationToggle() {
   $("#nav-menu").toggleClass("mobile-open");
-  $(window).trigger("resize");
-}
-
-function ResizeEventsListener() {
-  $(window)
-    .resize(() => {
-      const navMenu = $("#nav-menu");
-
-      if ($(window).width() > 768) {
-        navMenu.removeClass("mobile-open");
-        navMenu.css("display", "flex");
-      } else {
-        if (!navMenu.hasClass("mobile-open")) {
-          navMenu.css("display", "none");
-        } else {
-          navMenu.css("display", "flex");
-        }
-      }
-    })
-    .trigger("resize");
 }
 
 function colorModeLogoChange() {

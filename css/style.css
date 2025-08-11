@@ -1,15 +1,18 @@
 /* 공통 초기화 */
 * {
+  box-sizing: border-box;
+
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
+  margin-top: 80px;
+
   font-family: "Noto Sans KR", sans-serif;
+
   background-color: #e2e2e2;
   color: #000;
-  margin-top: 80px;
 }
 
 button,
@@ -20,46 +23,68 @@ nav a {
 html {
   overflow-y: scroll;
 }
-/* 네비게이션 */
+/* 공통 네비게이션 */
 nav {
-  background: linear-gradient(135deg, #49aef1 0%, #4e7fff 50%, #3392f1 100%);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 1000;
+
+  width: 100%;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  background: linear-gradient(135deg, #49aef1 0%, #4e7fff 50%, #3392f1 100%);
 }
 .nav-container {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
   max-width: 100%;
-  position: relative;
-  border-bottom: 2px solid gainsboro;
+  height: 80px;
 }
 .nav-container > a {
   height: 78px;
   border-radius: 5px;
 }
 .nav-container .university-logo {
-  height: 80px;
   flex-shrink: 0;
+  height: 80px;
 }
 .nav-container .nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 2px;
+  width: 100%;
+
   list-style: none;
-  flex: 1;
+
+  background: #666;
+}
+.nav-container .nav-menu.mobile-open {
+  display: flex;
 }
 .nav-container .nav-item {
-  flex: 1;
+  box-sizing: border-box;
+
+  flex: 0 0 auto;
   min-width: 100px;
   height: 78px;
-  background-color: rgba(00, 57, 212, 0.2);
-  white-space: nowrap;
+  padding: 0 10px;
   border: 1px solid rgba(00, 57, 212, 0.5);
+
+  white-space: nowrap;
+
+  background-color: rgba(00, 57, 212, 0.2);
 }
 .nav-container > a:hover,
 .nav-item:hover {
@@ -70,45 +95,54 @@ nav {
   background: rgba(00, 57, 212, 0.3);
 }
 .nav-container .nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
 }
-/* 모바일용 내비게이션 버튼 */
+/* 모바일용  네비게이션 토글 버튼 */
 .nav-container .nav-toggle {
-  font-size: 50px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
   display: none;
   margin-right: 20px;
+  border: none;
+
+  font-size: 50px;
+  color: #333;
+
+  background: none;
+
+  cursor: pointer;
 }
 
 /* 배너 */
 .banner {
   margin-top: 90px;
+
   text-align: center;
 }
 .banner-container {
+  position: relative;
+
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  overflow: hidden;
-  background: #ddd;
   border-radius: 10px;
-  position: relative;
-  width: 100%;
+
+  background: #ddd;
+
+  overflow: hidden;
 }
 .banner-container .slide-wrap {
+  position: relative;
+
   display: flex;
   width: max-content;
-  position: relative;
 }
 .banner-container .slide {
   flex-shrink: 0;
@@ -116,24 +150,28 @@ nav {
   max-width: 900px;
 }
 .banner-container .slide img {
+  display: block;
   width: 100%;
   height: 700px;
   border-radius: 10px;
-  display: block;
 }
 
 .banner-container #prev,
 .banner-container #next {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  z-index: 10;
+
   padding: 10px;
   border: none;
-  cursor: pointer;
-  z-index: 10;
   border-radius: 50%;
+
+  color: white;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  cursor: pointer;
+  transform: translateY(-50%);
 }
 .banner-container #prev:hover,
 .banner-container #next:hover {
@@ -150,111 +188,129 @@ nav {
 .popup {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+
   display: none;
   justify-content: center;
   align-items: center;
+
+  background: rgba(0, 0, 0, 0.5);
 }
 .popup-content {
-  background: white;
   padding: 20px;
   border-radius: 5px;
+
+  background: white;
 }
 
 /**   학교 소개    ***/
 .introduce-container {
-  margin: 130px 40px;
   position: relative;
+
+  margin: 130px 40px;
 }
 .introduce-container .tab-menu {
-  width: 95%;
   display: flex;
+  width: 95%;
   margin: auto;
 }
 .introduce-container .tab-btn {
   flex: 1;
   padding: 6px;
-  background: #f8f9fa;
   border: 2px solid #0056b3;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  cursor: pointer;
+
   font-size: 1.5rem;
   font-weight: bold;
+
+  background: #f8f9fa;
+
+  cursor: pointer;
 }
 .introduce-container .tab-btn.active {
   background: #007bff;
   color: white;
 }
 .introduce-container .tab-content {
+  position: absolute;
+  z-index: 0;
+
+  width: 100%;
+  min-height: 150px;
   padding: 20px;
-  background: #f8f9fa;
   border: 3px solid #0056b3;
   border-radius: 8px;
-  min-height: 150px;
-  position: absolute;
-  width: 100%;
+
+  background: #f8f9fa;
   opacity: 0;
   visibility: hidden;
   transform: translateY(0);
   transition: all 0.3s ease;
-  z-index: 0;
 }
 .introduce-container .tab-content.active {
+  z-index: 1;
+
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  z-index: 1;
 }
 
 .introduce-container .tab-content .univ-img {
+  display: block;
   width: 100%;
   max-width: 800px;
-  display: block;
+
   margin: 0 auto 40px;
   border-radius: 10px;
 }
 .introduce-container .tab-content .intro-title-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   place-items: center;
+  gap: 20px;
 }
 .introduce-container .tab-content .intro-title-btn {
-  border: 2px solid #2e64a1;
-  border-radius: 50%;
-  background-color: white;
-  color: #333;
-  font-weight: bold;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  align-items: center;
   width: 240px;
   height: 240px;
+  border: 2px solid #2e64a1;
+  border-radius: 50%;
+
   font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  cursor: pointer;
 }
 .introduce-container .tab-content .intro-title-btn:hover,
 .introduce-container .tab-content .intro-title-btn.active {
-  transform: scale(1.05);
-  background-color: #007bff;
   color: white;
+
+  background-color: #007bff;
+  transform: scale(1.05);
 }
 .introduce-container .tab-content .intro-content {
+  display: none;
   margin-top: 50px;
   padding: 10px;
-  display: none;
-  font-size: 2rem;
-  line-height: 1.6;
   border: 1px solid black;
   border-radius: 5px;
+
+  font-size: 2rem;
+  line-height: 1.6;
+
   background-color: rgba(0, 0, 0, 0.07);
 }
 .introduce-container .tab-content .intro-content p {
   margin-bottom: 1.5em;
+
   line-height: 1.7;
 }
 .introduce-container .tab-content .intro-content.active {
@@ -267,11 +323,13 @@ nav {
   padding: 30px 20px;
 }
 .introduce-container .tab-content .timeline-container h2 {
-  font-size: 60px;
   margin-bottom: 20px;
+
+  font-size: 60px;
 }
 .introduce-container .tab-content .timeline-container .timeline {
   position: relative;
+
   border-left: 3px solid #4a90e2;
   padding-left: 30px;
 }
@@ -280,81 +338,97 @@ nav {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100%;
+
   width: 3px;
+  height: 100%;
+
   background: #4a90e2;
 }
 .introduce-container .tab-content .timeline-container .timeline-item {
-  margin-bottom: 40px;
   position: relative;
+
+  margin-bottom: 40px;
 }
 .introduce-container .tab-content .timeline-container .timeline-item::before {
   content: "";
   position: absolute;
   left: -43px;
   bottom: 0px;
+
   width: 20px;
   height: 20px;
-  background: white;
   border: 3px solid #4a90e2;
   border-radius: 50%;
+
+  background: white;
 }
 .introduce-container .tab-content .timeline-container .timeline-date {
+  position: relative;
+  bottom: -50px;
+
+  margin-bottom: 8px;
+
+  font-size: 20px;
   font-weight: bold;
   color: #4a90e2;
-  margin-bottom: 8px;
-  font-size: 20px;
-  position: relative;
-  bottom: -50px;
 }
 .introduce-container .tab-content .timeline-container .timeline-content {
-  background: #f4f4f4;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-size: 15px;
-  line-height: 1.6;
   position: relative;
   bottom: -50px;
+
+  padding: 15px 20px;
+  border-radius: 8px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  background: #f4f4f4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .introduce-container .tab-content .principal-container {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
   display: flex;
   gap: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+
+  background-color: #f9f9f9;
 }
 .introduce-container .tab-content .principal-container .principal-photo {
   width: 60%;
   height: 60%;
   border: 5px solid gainsboro;
   border-radius: 10px;
+
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
 .introduce-container .tab-content .principal-container .principal-message {
   max-width: 600px;
+
   font-family: "Noto Sans KR", sans-serif;
   color: #333;
 }
 .introduce-container .tab-content .principal-container .principal-message h2 {
-  font-size: 28px;
   margin-bottom: 12px;
-  color: #004080;
-  border-left: 5px solid #004080;
   padding-left: 10px;
+  border-left: 5px solid #004080;
+
+  font-size: 28px;
+  color: #004080;
 }
 .introduce-container .tab-content .principal-container .principal-message p {
+  margin-bottom: 12px;
+
   font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 12px;
 }
 .introduce-container .tab-content .principal-container .principal-message span {
+  display: block;
+
   font-style: italic;
   font-weight: 600;
   color: #666;
   text-align: right;
-  display: block;
 }
 .introduce-container .tab-content iframe {
   display: block;
@@ -363,18 +437,65 @@ nav {
   margin: 20px auto;
   border: 1px solid black;
 }
+/** 학부 및 학과 소개 **/
+.college-container {
+  max-width: 1200px;
+  margin: auto;
+}
+.college-container .college-department {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9f1ff;
+  border: 1px solid #ccc;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+
+  cursor: pointer;
+}
+.college-container .college-department-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  max-height: 700px;
+  margin: 10px auto;
+  border: 2px solid #5a7ab0;
+  border-radius: 10px;
+}
+.college-container .department-list {
+  display: none;
+  padding-left: 30px;
+
+  background-color: #f9f9f9;
+}
+.college-container .department-list.active {
+  display: block;
+}
+
+.college-container .department-list ul {
+  padding: 10px 0;
+
+  font-size: 2rem;
+  list-style: none;
+}
 
 /* 모바일 크기 */
 @media (max-width: 768px) {
   .nav-container .nav-menu {
-    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    background: #666;
-    width: 100%;
-    display: none;
     z-index: 1000;
+
+    display: none;
+    flex-direction: column;
+    width: 100%;
+
+    background: #666;
   }
   .nav-container .nav-toggle {
     display: block;
@@ -384,35 +505,49 @@ nav {
   }
   .nav-container .nav-link {
     height: 80px;
+
     font-size: 1.8rem;
     font-weight: bold;
   }
   .introduce-container .tab-content .intro-title-btn {
     width: 120px;
     height: 120px;
+
     font-size: 16px;
   }
   .introduce-container .tab-content .intro-content {
+    border: 1px solid black;
+
     font-size: 1.2rem;
     line-height: 1.6;
-    border: 1px solid black;
   }
 }
+@media (min-width: 769px) {
+  .nav-container .nav-menu {
+    position: static;
 
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+
+    background: none;
+  }
+}
 /* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #121212;
     color: #f0f0f0;
+
+    background-color: #121212;
   }
 
   nav {
     background: linear-gradient(135deg, #1f1f6f 0%, #3030a7 50%, #5555f3 100%);
   }
-
   .nav-container .nav-item {
-    background-color: rgba(33, 52, 104, 0.7);
     border: 1px solid rgba(00, 57, 212, 0.2);
+
+    background-color: rgba(33, 52, 104, 0.7);
   }
   .nav-container .nav-item:hover {
     background-color: #3030a7;
@@ -420,7 +555,6 @@ nav {
   .nav-container .nav-item:active {
     background-color: #303097;
   }
-
   .nav-container .nav-link {
     color: #f5f5f5;
   }
@@ -430,19 +564,21 @@ nav {
   .nav-container > a:active {
     background-color: #1f1f2f;
   }
+
   .banner-container {
     background-color: #222;
     border-bottom: 2px solid #888;
   }
-
   #prev,
   #next {
-    background: rgba(255, 255, 255, 0.2);
     color: #fff;
+
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .popup-content {
-    background: #2a2a2a;
     color: #fff;
+
+    background: #2a2a2a;
   }
 }
