@@ -443,7 +443,7 @@ nav {
   margin: auto;
 }
 .college-container .college-department {
-  margin-top: 20px;
+  margin: 20px 0;
   padding: 15px;
   background-color: #e9f1ff;
   border: 1px solid #ccc;
@@ -455,6 +455,12 @@ nav {
   text-align: center;
 
   cursor: pointer;
+}
+.college-container .college-department:hover {
+  background-color: #c1d3f2;
+}
+.college-container .college-department:active {
+  background-color: #88b0f4;
 }
 .college-container .college-department-img {
   display: block;
@@ -468,21 +474,70 @@ nav {
 }
 .college-container .department-list {
   display: none;
-  padding-left: 30px;
+  margin-top: -30px;
+  margin-bottom: 30px;
 
   background-color: #f9f9f9;
 }
 .college-container .department-list.active {
   display: block;
 }
-
 .college-container .department-list ul {
-  padding: 10px 0;
-
   font-size: 2rem;
+  line-height: 100px;
   list-style: none;
+  text-align: center;
+}
+.college-container .department-list li {
+  border: 1px solid #c7def7;
+}
+.college-container .department-list li:hover {
+  background-color: #c7def7;
+}
+.college-container .department-list li:active {
+  background-color: #acd1f8;
+}
+/* 모달 배경 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
 }
 
+/* 모달 활성화 시 보이기 */
+.modal.show {
+  display: flex;
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+  background: white;
+  padding: 20px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 닫기 버튼 */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
 /* 모바일 크기 */
 @media (max-width: 768px) {
   .nav-container .nav-menu {
