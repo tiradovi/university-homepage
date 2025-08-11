@@ -5,10 +5,9 @@ $(function () {
   initialize();
   $("#nav-toggle").click(navigationToggle);
   $("#open-login-popup").click(openLoginPopup);
-  $("#move-register").click(goToSignup);
 });
 
-// 페이지 초기화
+
 function initialize() {
   initializeSlider();
   colorModeLogoChange();
@@ -89,8 +88,4 @@ function openLoginPopup(e) {
     "loginPopup",
     `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=no,scrollbars=no`
   );
-}
-
-function goToSignup() {
-  window.location.href = "register.html";
 }

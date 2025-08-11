@@ -63,12 +63,12 @@ nav {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: 2px;
+
   width: 100%;
 
   list-style: none;
 
-  background: #666;
+  background: blue;
 }
 .nav-container .nav-menu.mobile-open {
   display: flex;
@@ -575,7 +575,7 @@ nav {
 /* 로그인 */
 .login-container {
   width: 490px;
-  height: 615px;
+  height: 618px;
   margin: 0;
   margin-top: -80px;
   padding: 40px 35px;
