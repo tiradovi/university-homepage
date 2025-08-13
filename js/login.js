@@ -21,13 +21,18 @@ function login() {
   const userInfo = JSON.parse(localStorage.getItem("userInfo") || "[]");
 
   const user = userInfo.find((u) => u.id === id && u.pw === pw);
-
+  const loginUserInfo = {
+    id: user.id,
+    pw: user.pw,
+    name: user.name,
+    loginTime: new Date().getTime(),
+  };
   if (user) {
-    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
-
+    if (opener && !opener.closed) {
+      opener.receiveLoggedInUser(loginUserInfo);
+    }
     alert(`${user.name}님 환영합니다!`);
     window.close();
-    opener.window.location.href = "../index.html"; 
   } else {
     alert("아이디 또는 비밀번호가 일치하지 않습니다.");
   }

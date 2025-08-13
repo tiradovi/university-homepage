@@ -5,7 +5,7 @@ $(function () {
   initialize();
   $("#nav-toggle").click(navigationToggle);
   $("#open-login-popup").click(openLoginPopup);
-  updateLoginStatus();
+  receiveLoggedInUser();
 });
 
 function initialize() {
@@ -89,24 +89,19 @@ function openLoginPopup(e) {
     `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=no,scrollbars=no`
   );
 }
-function updateLoginStatus() {
-  const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+function receiveLoggedInUser(user) {
+  // 세션에 저장
+  sessionStorage.setItem("loggedInUser", JSON.stringify(user));
 
-  if (loggedInUser) {
-    $("#login-area").html(`
-      <span>${loggedInUser.name}님</span>
-      <button id="logout-btn" class="logout-btn">로그아웃</button>
-    `);
+  // UI 갱신
+  $("#login-area").html(`
+    <span>${user.name}님</span>
+    <button id="logout-btn" class="logout-btn">로그아웃</button>
+  `);
 
-    $("#logout-btn").click(function () {
-      sessionStorage.removeItem("loggedInUser");
-      alert("로그아웃 되었습니다.");
-      location.reload();
-    });
-  } else {
-    $("#login-area").html(`
-      <a href="#" class="nav-link" id="open-login-popup">로그인</a>
-    `);
-    $("#open-login-popup").click(openLoginPopup);
-  }
+  $("#logout-btn").click(() => {
+    sessionStorage.removeItem("loggedInUser");
+    alert("로그아웃 되었습니다.");
+    location.reload();
+  });
 }

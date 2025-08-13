@@ -112,10 +112,9 @@ function handleSubmit(e) {
 
     userInfo.push(user);
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    alert("회원가입 성공! 마이페이지로 이동합니다.");
-    location.href = "mypage.html";
+    alert("회원가입 성공! 메인페이지로 이동합니다.");
+    location.href = "../index.html";
 
     $("#regist-container")[0].reset();
     $(".input-result").removeClass("valid invalid");
