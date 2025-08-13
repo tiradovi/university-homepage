@@ -657,71 +657,99 @@ nav {
   font-weight: bold;
   color: #4e7fff;
 }
+
 .main-link:hover {
   color: #366fff;
 }
+
 .main-link:active {
   color: #2362ff;
 }
+
+/* 회원가입 컨테이너 */
 .regist-container {
   width: 90%;
-  height: 700px;
   max-width: 1000px;
-  margin: 10px auto;
+  height: auto; /* 고정 높이 제거, 콘텐츠에 따라 자동 조정 */
+  margin: 20px auto;
+  padding: 30px;
   border: 4px solid #4e7fff;
   border-radius: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 .regist-container h2 {
-  margin: 50px;
-
+  margin-bottom: 40px;
   text-align: center;
-  font-size: 70px;
+  font-size: 3.5rem;
   color: #1e90ff;
 }
 .regist-container table {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   border-collapse: collapse;
 }
-
-.regist-container td {
-  padding: 8px;
-
-  text-align: center;
-  font-weight: bold;
+.regist-container table tr td {
+  padding: 10px 8px;
   vertical-align: top;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-
-.regist-container .signup-input {
+.regist-container table tr td:first-child {
+  width: 200px;
+}
+.regist-container table tr td .signup-input {
   width: 100%;
-  padding: 8px;
+  height: 50px;
+  padding: 10px;
   border: 1px solid #bbb;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 18px;
 }
-
-.regist-container .signup-input:focus {
+.regist-container table tr td .signup-input:focus {
   border-color: #007bff;
   outline: none;
 }
+.regist-container table tr td .id-check-btn {
+  width: 90px;
+  height: 40px;
+  border: 1px solid rgb(193, 193, 193);
+  padding: 4px 4px;
 
-.regist-container .input-result {
+  font-size: 10px;
+  font-weight: bold;
+
+  background-color: white;
+}
+.regist-container table tr td .id-check-btn:hover {
+  background-color: rgb(182, 182, 182);
+}
+.regist-container table tr td .id-check-btn:active {
+  background-color: rgb(164, 164, 164);
+}
+.regist-container table tr td .input-result {
   display: block;
+  margin-top: 4px;
+
   font-size: 12px;
   color: #666;
-  margin-top: 4px;
+  text-align: center;
 }
-.regist-container tfoot .btn-area {
-  text-align: right;
-  padding: 80px 0px;
+.regist-container table tr td .input-result.valid {
+  color: rgb(120, 120, 245);
 }
-.regist-container tfoot .btn-area .signup-btn {
-  color: white;
+.regist-container table tr td .input-result.invalid {
+  color: rgb(234, 121, 121);
 }
-
-.regist-container label {
-  margin-right: 20px;
+.regist-container table tr td label {
+  margin: 80px;
   font-size: 1rem;
+}
+.regist-container table tr .btn-area {
+  padding: 20px 0;
+  text-align: center;
+}
+.regist-container table tr .btn-area .signup-btn {
+  color: #fff;
 }
 
 /* 모바일 크기 */
@@ -761,6 +789,28 @@ nav {
 
     font-size: 1.2rem;
     line-height: 1.6;
+  }
+  .regist-container h2 {
+    font-size: 2rem;
+  }
+  .regist-container table tr td {
+    font-size: 16px;
+    text-align: left;
+  }
+  .regist-container table tr td:first-child {
+    width: 100px;
+    font-size: 15px;
+  }
+  .regist-container table tr td .signup-input {
+    height: 35px;
+    font-size: 14px;
+  }
+  .regist-container table tr td label {
+    margin: 30px;
+    font-size: 1rem;
+  }
+  .regist-container table tr .btn-area {
+    text-align: right;
   }
 }
 @media (min-width: 769px) {

@@ -5,6 +5,7 @@ $(function () {
   initialize();
   $("#nav-toggle").click(navigationToggle);
   $("#open-login-popup").click(openLoginPopup);
+  updateLoginStatus();
 });
 
 function initialize() {
@@ -87,4 +88,25 @@ function openLoginPopup(e) {
     "loginPopup",
     `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=no,scrollbars=no`
   );
+}
+function updateLoginStatus() {
+  const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+  if (loggedInUser) {
+    $("#login-area").html(`
+      <span>${loggedInUser.name}님</span>
+      <button id="logout-btn" class="logout-btn">로그아웃</button>
+    `);
+
+    $("#logout-btn").click(function () {
+      sessionStorage.removeItem("loggedInUser");
+      alert("로그아웃 되었습니다.");
+      location.reload();
+    });
+  } else {
+    $("#login-area").html(`
+      <a href="#" class="nav-link" id="open-login-popup">로그인</a>
+    `);
+    $("#open-login-popup").click(openLoginPopup);
+  }
 }
