@@ -1,10 +1,42 @@
 $(function () {
   checkLogin();
   $("#extend-btn").click(extendSession);
+  initProfileUpload();
 });
 
 let sessionTimerInterval;
 let sessionDuration = 30 * 60 * 1000;
+
+function initProfileUpload() {
+  const profileInput = $("#profile-img");
+  const profilePreview = $("#profile-preview");
+
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  if (user && user.profileImage) {
+    profilePreview.attr("src", user.profileImage);
+  }
+
+  profileInput.on("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      profilePreview.attr("src", e.target.result);
+
+      user.profileImage = e.target.result;
+      sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+
+      const allUsers = JSON.parse(localStorage.getItem("userInfo") || "[]");
+      const index = allUsers.findIndex((u) => u.id === user.id);
+      if (index !== -1) {
+        allUsers[index].profileImage = e.target.result;
+        localStorage.setItem("userInfo", JSON.stringify(allUsers));
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
 function checkLogin() {
   const sessionUser = JSON.parse(sessionStorage.getItem("loggedInUser"));

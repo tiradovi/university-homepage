@@ -52,12 +52,27 @@
         <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
+
     <p class="session-timer">
       세션 남은 시간: <span id="timer"></span
       ><button type="button" id="extend-btn" class="extend-btn">연장</button>
     </p>
+
     <div class="mypage-container">
       <h2>마이페이지</h2>
+
+      <div class="profile-upload">
+        <input type="file" id="profile-img" accept="image/*" />
+        <label for="profile-img" class="upload-label">
+          <img
+            id="profile-preview"
+            src="../img/university.png"
+            alt="프로필 업로드"
+          />
+          <span>클릭해서 이미지를 업로드하세요</span>
+        </label>
+      </div>
+
       <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
 
       <p>아이디: <span id="user-id"></span></p>
