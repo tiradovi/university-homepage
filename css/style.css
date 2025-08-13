@@ -751,6 +751,54 @@ nav {
 .regist-container table tr .btn-area .signup-btn {
   color: #fff;
 }
+/* 마이페이지 */
+.session-timer {
+  margin-top: 90px;
+  margin-right: 15px;
+  text-align: right;
+}
+.session-timer span {
+  font-weight: bold;
+  color: #d9534f;
+}
+.session-timer .extend-btn {
+  width: 80px;
+  height: 40px;
+  margin-left: 10px;
+  padding: 5px 8px;
+  background-color: white;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+.session-timer .extend-btn:hover {
+  background-color: #999;
+}
+.session-timer .extend-btn:active {
+  background-color: #888;
+}
+
+.mypage-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mypage-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.mypage-container p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
 
 /* 모바일 크기 */
 @media (max-width: 768px) {

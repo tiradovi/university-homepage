@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>마이페이지</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -52,9 +52,20 @@
         <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
+    <p class="session-timer">
+      세션 남은 시간: <span id="timer"></span
+      ><button type="button" id="extend-btn" class="extend-btn">연장</button>
+    </p>
+    <div class="mypage-container">
+      <h2>마이페이지</h2>
+      <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
 
-    <h2>마이페이지</h2>
-    <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
+      <p>아이디: <span id="user-id"></span></p>
+      <p>성별: <span id="user-gender"></span></p>
+      <p>최근 접속 시간: <span id="last-login-time"></span></p>
+      <p>최근 접속 IP: <span id="last-login-ip"></span></p>
+      <button id="logout-btn" class="logout-btn">로그아웃</button>
+    </div>
 
     <script src="../js/index.js"></script>
     <script src="../js/mypage.js"></script>
