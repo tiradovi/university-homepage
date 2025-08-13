@@ -7,7 +7,6 @@ $(function () {
   $("#open-login-popup").click(openLoginPopup);
 });
 
-
 function initialize() {
   initializeSlider();
   colorModeLogoChange();
