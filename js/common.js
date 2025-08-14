@@ -23,11 +23,9 @@ function bindCommonEvents() {
   $(document).on("click", "#open-login-popup", openLoginPopupEvent);
   $(document).on("click", "#logout-btn", handleLogout);
 }
-
 function toggleNavigation() {
   $("#nav-menu").toggleClass("mobile-open");
 }
-
 function updateColorModeLogo() {
   const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const basePath = window.location.pathname.includes("/page/") ? "../" : "";
@@ -41,12 +39,10 @@ function watchColorModeChange() {
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", updateColorModeLogo);
 }
-
 function openLoginPopupEvent(e) {
   e.preventDefault();
   openLoginPopup();
 }
-
 function openLoginPopup() {
   const [w, h] = [500, 600];
   const left = window.screen.width / 2 - w / 2;
@@ -67,7 +63,6 @@ function openLoginPopup() {
     }
   }, 500);
 }
-
 function receiveLoggedInUser(user) {
   sessionStorage.setItem("loggedInUser", JSON.stringify(user));
   updateLoginStatus();
@@ -80,7 +75,6 @@ function updateLoginStatus() {
       : `<a href="#" class="nav-link" id="open-login-popup">로그인</a>`
   );
 }
-
 function handleLogout() {
   sessionStorage.removeItem("loggedInUser");
   location.reload();

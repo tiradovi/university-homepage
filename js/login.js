@@ -2,6 +2,9 @@ $(function () {
   $("#logo").click(mainPage);
   $("#login-btn").click(login);
   $("#signup-btn").click(goToSignup);
+  $(document).on("keydown", (e) => {
+    if (e.key === "Enter") login();
+  });
 });
 
 function mainPage() {
@@ -21,13 +24,13 @@ function login() {
   const userInfo = JSON.parse(localStorage.getItem("userInfo") || "[]");
 
   const user = userInfo.find((u) => u.id === id && u.pw === pw);
-  const loginUserInfo = {
-    id: user.id,
-    pw: user.pw,
-    name: user.name,
-    loginTime: new Date().getTime(),
-  };
   if (user) {
+    const loginUserInfo = {
+      id: user.id,
+      pw: user.pw,
+      name: user.name,
+      loginTime: new Date().getTime(),
+    };
     if (opener && !opener.closed) {
       opener.receiveLoggedInUser(loginUserInfo);
     }
