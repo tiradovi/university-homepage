@@ -1,7 +1,4 @@
-let notices = JSON.parse(localStorage.getItem("notices") || "[]");
-const currentUser = JSON.parse(
-  sessionStorage.getItem("loggedInUser") || "null"
-);
+let notices = getStorage("notices");
 
 const noticeList = $("#notice-list");
 const addNoticeBtn = $("#add-notice-btn");
@@ -11,12 +8,19 @@ const noticesPerPage = 10;
 let currentPage = 1;
 
 $(function () {
+  const currentUser = getSession("loggedInUser");
   if (currentUser) addNoticeBtn.show();
+
   renderNotices();
 
   addNoticeBtn.on("click", () => {
-    if (!currentUser) return alert("로그인이 필요합니다.");
-    openNoticeModal();
+    const user = getSession("loggedInUser");
+    if (!user) {
+      alert("로그인이 필요합니다.");
+      openLoginPopup();
+    } else {
+      openNoticeModal();
+    }
   });
 
   $(".category-btn").on("click", function () {
@@ -50,9 +54,11 @@ $(function () {
 function closeModal() {
   modal.fadeOut(200);
   clearNoticeForm();
+  $("#notice-detail").remove();
 }
 
 function renderNotices() {
+  const currentUser = getSession("loggedInUser");
   noticeList.empty();
   $("#pagination").remove();
 
@@ -71,6 +77,7 @@ function renderNotices() {
 
   const totalPages = Math.ceil(filtered.length / noticesPerPage) || 1;
   const start = (currentPage - 1) * noticesPerPage;
+
   filtered.slice(start, start + noticesPerPage).forEach((n, idx) => {
     noticeList.append(`
       <tr>
@@ -97,21 +104,21 @@ function renderNotices() {
     `);
   });
 
-  renderPagination(totalPages, filter);
+  renderPagination(totalPages);
 }
 
-function renderPagination(totalPages, filter) {
-  const $pagination = $('<div id="pagination" class="pagination"></div>');
+function renderPagination(totalPages) {
+  const pagination = $('<div id="pagination" class="pagination"></div>');
   for (let i = 1; i <= totalPages; i++) {
-    const $btn = $(`<button class="page-btn">${i}</button>`);
-    if (i === currentPage) $btn.addClass("active");
-    $btn.on("click", () => {
+    const btn = $(`<button class="page-btn">${i}</button>`);
+    if (i === currentPage) btn.addClass("active");
+    btn.on("click", () => {
       currentPage = i;
       renderNotices();
     });
-    $pagination.append($btn);
+    pagination.append(btn);
   }
-  $(".notice-container").append($pagination);
+  $(".notice-container").append(pagination);
 }
 
 function editNotice(idx) {
@@ -128,6 +135,7 @@ function deleteNotice(idx) {
 }
 
 function openNoticeModal(notice = null, idx = null) {
+  const currentUser = getSession("loggedInUser");
   $("#notice-title").val(notice ? notice.title : "");
   $("#notice-content").val(notice ? notice.content : "");
   $("#notice-category").val(notice ? notice.category : "academic");
@@ -165,9 +173,9 @@ function clearNoticeForm() {
 }
 
 function getTodayDate() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
+  const date = new Date();
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
     2,
     "0"
-  )}-${String(d.getDate()).padStart(2, "0")}`;
+  )}-${String(date.getDate()).padStart(2, "0")}`;
 }

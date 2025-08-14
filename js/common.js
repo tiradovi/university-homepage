@@ -63,6 +63,7 @@ function openLoginPopup() {
     if (loginPopup.closed) {
       clearInterval(timer);
       if (typeof initSession === "function") initSession();
+      renderNotices();
     }
   }, 500);
 }
