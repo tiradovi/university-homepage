@@ -854,9 +854,6 @@ nav {
 
 .mypage-container .change-password-container button.active {
   display: flex;
-  background-color: #4caf50;
-  color: #fff;
-  border-color: #4caf50;
 }
 
 .mypage-container .change-password-container .password-section {

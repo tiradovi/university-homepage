@@ -1,3 +1,6 @@
+let sessionTimerInterval;
+let sessionDuration = 30 * 60 * 1000;
+
 $(function () {
   initSession();
   initProfileUpload();
@@ -76,7 +79,7 @@ function passwordChange() {
       toggleClass("#new-password-section", "#current-password-section");
       $("#password-error").removeClass("active");
     } else {
-      $("#password-error").addClass("active");
+      showPasswordError("비밀번호가 일치하지 않습니다.");
     }
   });
 
@@ -84,20 +87,26 @@ function passwordChange() {
     let newPassword = $("#new-password").val();
     let confirmPassword = $("#confirm-password").val();
     if (newPassword === confirmPassword) {
-      currentUser.pw = newPassword;
+      if (!validateField("pw", $("#new-password").val())) {
+        showPasswordError(
+          "비밀번호는 영문 + 숫자 포함 8~20자로 입력해야 합니다."
+        );
+      } else {
+        currentUser.pw = newPassword;
 
-      const updatedUsers = users.map((u) =>
-        u.id === currentUser.id ? { ...u, pw: newPassword } : u
-      );
-      setStorage("userInfo", updatedUsers);
-      setSession("loggedInUser", currentUser);
+        const updatedUsers = users.map((u) =>
+          u.id === currentUser.id ? { ...u, pw: newPassword } : u
+        );
+        setStorage("userInfo", updatedUsers);
+        setSession("loggedInUser", currentUser);
 
-      toggleClass("#change-password-btn", "#new-password-section");
-      $("#new-password, #confirm-password, #current-password").val("");
-      $("#password-error").removeClass("active");
-      alert("비밀번호가 성공적으로 변경되었습니다!");
+        toggleClass("#change-password-btn", "#new-password-section");
+        $("#new-password, #confirm-password, #current-password").val("");
+        $("#password-error").removeClass("active");
+        alert("비밀번호가 성공적으로 변경되었습니다!");
+      }
     } else {
-      $("#password-error").addClass("active");
+      showPasswordError("두 비밀번호가 서로 일치하지 않습니다.");
     }
   });
 }
@@ -106,7 +115,9 @@ function toggleClass(showSelector, hideSelector) {
   $(showSelector).addClass("active");
   $(hideSelector).removeClass("active");
 }
-
+function showPasswordError(msg) {
+  $("#password-error").text(msg).addClass("active");
+}
 function handleExtendSession() {
   const sessionUser = getSession("loggedInUser");
   if (!sessionUser) return;
@@ -116,8 +127,6 @@ function handleExtendSession() {
   location.reload();
 }
 
-let sessionTimerInterval;
-let sessionDuration = 30 * 60 * 1000;
 function startSessionTimer(sessionUser, displaySelector = "#timer") {
   sessionTimerInterval = setInterval(() => {
     const remaining = sessionDuration - (Date.now() - sessionUser.loginTime);
