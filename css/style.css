@@ -39,6 +39,20 @@ button:active {
 html {
   overflow-y: scroll;
 }
+
+.page-title {
+  display: inline;
+  width: 100%;
+  text-align: left;
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 30px 0 20px 0;
+  padding: auto;
+  color: #007bff;
+  border: 5px solid #6894c4;
+  border-bottom-right-radius: 8px;
+}
+
 /* 공통 네비게이션 */
 nav {
   position: fixed;
@@ -47,8 +61,6 @@ nav {
   z-index: 1000;
 
   width: 100%;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 
   background: linear-gradient(135deg, #49aef1 0%, #4e7fff 50%, #3392f1 100%);
 }
@@ -221,8 +233,7 @@ nav {
 /**   학교 소개    ***/
 .introduce-container {
   position: relative;
-
-  margin: 130px 40px;
+  margin: 0 40px;
 }
 .introduce-container .tab-menu {
   display: flex;
@@ -232,6 +243,7 @@ nav {
 .introduce-container .tab-btn {
   flex: 1;
   padding: 6px;
+  margin-top: 15px;
   border: 2px solid #0056b3;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -753,7 +765,7 @@ nav {
 }
 /* 마이페이지 */
 .session-timer {
-  margin-top: 90px;
+  margin-top: -40px;
   margin-right: 15px;
   text-align: right;
 }
@@ -786,12 +798,7 @@ nav {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.mypage-container h2 {
-  text-align: center;
-  font-size: 80px;
-  margin-bottom: 50px;
-  color: #333;
-}
+
 .mypage-container .profile-upload {
   position: relative;
   margin: auto;
@@ -898,7 +905,10 @@ nav {
   margin: 50px auto;
   font-family: Arial, sans-serif;
 }
-
+.notice-container > h1 {
+  text-decoration: none;
+  margin: 50px;
+}
 .notice-container .notice-controls {
   display: flex;
   justify-content: space-between;
@@ -1016,6 +1026,18 @@ nav {
 }
 /* 모바일 크기 */
 @media (max-width: 768px) {
+  .page-title {
+    display: inline;
+    width: 100%;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 30px 0 20px 0;
+    padding: 5px;
+    color: #007bff;
+    border: 2px solid #6894c4;
+    border-bottom-right-radius: 5px;
+  }
   .nav-container .nav-menu {
     position: absolute;
     top: 100%;
