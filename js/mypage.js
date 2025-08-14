@@ -1,13 +1,12 @@
 $(function () {
   initSession();
   initProfileUpload();
-  initPasswordChange();
+  passwordChange();
 
   $("#extend-btn").on("click", handleExtendSession);
   $("#logout-btn").on("click", handleLogout);
 });
 
-// ===== 세션 초기화 (mypage 전용) =====
 function initSession() {
   const sessionUser = getSession("loggedInUser");
   if (!sessionUser) return openLoginPopup();
@@ -21,7 +20,6 @@ function initSession() {
   startSessionTimer(sessionUser);
 }
 
-// ===== 사용자 정보 표시 =====
 function displayUserInfo(user, sessionUser) {
   $("#user-name").text(user.name);
   $("#user-id").text(user.id);
@@ -36,19 +34,18 @@ function displayUserInfo(user, sessionUser) {
   $("#last-login-ip").text(sessionUser.ip || "알 수 없음");
 }
 
-// ===== 프로필 업로드 =====
 function initProfileUpload() {
-  const $profileInput = $("#profile-img");
-  const $profilePreview = $("#profile-preview");
+  const profileInput = $("#profile-img");
+  const profilePreview = $("#profile-preview");
   const user = getSession("loggedInUser");
-  if (user?.profileImage) $profilePreview.attr("src", user.profileImage);
+  if (user?.profileImage) profilePreview.attr("src", user.profileImage);
 
-  $profileInput.on("change", function () {
+  profileInput.on("change", function () {
     const file = this.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function (e) {
-      $profilePreview.attr("src", e.target.result);
+      profilePreview.attr("src", e.target.result);
       user.profileImage = e.target.result;
       setSession("loggedInUser", user);
 
@@ -63,57 +60,53 @@ function initProfileUpload() {
   });
 }
 
-// ===== 비밀번호 변경 =====
-function initPasswordChange() {
-  const users = getStorage("users");
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+function passwordChange() {
+  const users = getStorage("userInfo");
+  const currentUser = getSession("loggedInUser");
 
   $("#change-password-btn").on("click", () => {
-    toggleSections("#current-password-section", "#new-password-section");
-    hideErrors();
+    toggleClass("#verify-password-btn", "#change-password-btn");
+    toggleClass("#current-password-section", "#new-password-section");
   });
 
-  $("#verify-current-password").on("click", () => {
-    const currentPassword = $("#current-password").val();
-    if (currentPassword === currentUser.password) {
-      toggleSections("#new-password-section", "#current-password-section");
+  $("#verify-password-btn").on("click", () => {
+    let currentPassword = $("#current-password").val();
+    if (currentPassword === currentUser.pw) {
+      toggleClass("#update-password-btn", "#verify-password-btn");
+      toggleClass("#new-password-section", "#current-password-section");
+      $("#password-error").removeClass("active");
     } else {
-      $("#current-password-error").show();
+      $("#password-error").addClass("active");
     }
   });
 
-  $("#update-password").on("click", () => {
-    const newPassword = $("#new-password").val();
-    const confirmPassword = $("#confirm-password").val();
-    if (newPassword && newPassword === confirmPassword) {
-      currentUser.password = newPassword;
+  $("#update-password-btn").on("click", () => {
+    let newPassword = $("#new-password").val();
+    let confirmPassword = $("#confirm-password").val();
+    if (newPassword === confirmPassword) {
+      currentUser.pw = newPassword;
 
       const updatedUsers = users.map((u) =>
-        u.email === currentUser.email ? { ...u, password: newPassword } : u
+        u.id === currentUser.id ? { ...u, pw: newPassword } : u
       );
-      setStorage("users", updatedUsers);
-      setStorage("currentUser", currentUser);
+      setStorage("userInfo", updatedUsers);
+      setSession("loggedInUser", currentUser);
 
+      toggleClass("#change-password-btn", "#new-password-section");
+      $("#new-password, #confirm-password, #current-password").val("");
+      $("#password-error").removeClass("active");
       alert("비밀번호가 성공적으로 변경되었습니다!");
-      resetPasswordFields();
     } else {
-      $("#new-password-error").show();
+      $("#password-error").addClass("active");
     }
   });
 }
 
-// ===== UI 유틸 =====
-function toggleSections(show, hide) {
-  $(show).show();
-  $(hide).hide();
+function toggleClass(showSelector, hideSelector) {
+  $(showSelector).addClass("active");
+  $(hideSelector).removeClass("active");
 }
-function hideErrors() {
-  $("#current-password-error, #new-password-error").hide();
-}
-function resetPasswordFields() {
-  $("#new-password, #confirm-password, #current-password").val("");
-  $("#new-password-section").hide();
-}
+
 function handleExtendSession() {
   const sessionUser = getSession("loggedInUser");
   if (!sessionUser) return;

@@ -74,20 +74,17 @@
       </div>
 
       <div class="change-password-container">
-        <button id="change-password-btn">비밀번호 변경</button>
-        <div id="current-password-section">
+        <button id="change-password-btn" class="active">비밀번호 변경</button>
+        <div id="current-password-section" class="password-section">
           <input
             type="password"
             id="current-password"
             placeholder="현재 비밀번호 입력"
           />
           <button id="verify-password-btn">확인</button>
-          <p id="password-error">
-            비밀번호가 일치하지 않습니다.
-          </p>
         </div>
 
-        <div id="new-password-section">
+        <div id="new-password-section" class="password-section">
           <input
             type="password"
             id="new-password"
@@ -100,6 +97,7 @@
           />
           <button id="update-password-btn">변경 완료</button>
         </div>
+        <p id="password-error">비밀번호가 일치하지 않습니다.</p>
       </div>
 
       <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
