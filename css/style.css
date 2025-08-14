@@ -51,6 +51,7 @@ html {
   color: #007bff;
   border: 5px solid #6894c4;
   border-bottom-right-radius: 8px;
+  background-color: #d1e5fa;
 }
 
 /* 공통 네비게이션 */
@@ -529,7 +530,7 @@ nav {
   background-color: #acd1f8;
 }
 /* 학과 모달창 */
-.modal {
+.department-modal {
   position: fixed;
   inset: 0;
   z-index: 3000;
@@ -540,10 +541,10 @@ nav {
 
   background: rgba(0, 0, 0, 0.5);
 }
-.modal.show {
+.department-modal.show {
   display: flex;
 }
-.modal .modal-content {
+.department-modal .department-modal-content {
   position: relative;
 
   width: 80%;
@@ -557,19 +558,26 @@ nav {
 
   overflow-y: auto;
 }
-.modal .modal-content .modal-head {
+.department-modal .department-modal-content .department-modal-head {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   background-color: #acd1f8;
 }
-.modal .modal-content .modal-head .modal-title {
+.department-modal
+  .department-modal-content
+  .department-modal-head
+  .department-modal-title {
   margin: 5px 15px;
 
   font-size: 40px;
   font-weight: bold;
 }
-.modal .modal-content .modal-head .modal-close {
+.department-modal
+  .department-modal-content
+  .department-modal-head
+  .department-modal-close {
   margin: 5px 15px;
   border: none;
 
@@ -579,7 +587,7 @@ nav {
 
   cursor: pointer;
 }
-.modal .modal-content .modal-body {
+.department-modal .department-modal-content .department-modal-body {
   margin: 10px;
   padding: 10px;
   border: 2px solid #aeccff;
@@ -587,17 +595,17 @@ nav {
 
   background: white;
 }
-.modal .modal-content .modal-body h2 {
+.department-modal .department-modal-content .department-modal-body h2 {
   margin-bottom: 20px;
 
   text-align: center;
 }
-.modal .modal-content .modal-body h3 {
+.department-modal .department-modal-content .department-modal-body h3 {
   margin: 20px;
 
   text-align: center;
 }
-.modal .modal-content .modal-body li {
+.department-modal .department-modal-content .department-modal-body li {
   list-style: none;
 }
 
@@ -805,7 +813,7 @@ nav {
   width: 240px;
   height: 240px;
 }
-.mypage-container .profile-upload input[type="file"] {
+.mypage-container .profile-upload input {
   display: none;
 }
 .mypage-container .profile-upload .upload-label {
@@ -901,37 +909,17 @@ nav {
 
 /* 공지사항 */
 .notice-container {
+  position: relative;
   width: 90%;
-  margin: 50px auto;
-  font-family: Arial, sans-serif;
-}
-.notice-container > h1 {
-  text-decoration: none;
-  margin: 50px;
-}
-.notice-container .notice-controls {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+  max-width: 1200px;
+  height: 760px;
+  margin: 20px auto;
 
-.notice-container .notice-controls select,
-.notice-container .notice-controls input[type="text"] {
-  padding: 6px 10px;
-  font-size: 16px;
-}
-
-.notice-container #add-notice-btn {
-  display: none;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.notice-container #add-notice-btn:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .notice-container .notice-table {
@@ -941,89 +929,213 @@ nav {
 
 .notice-container .notice-table th,
 .notice-container .notice-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
+  border: 1px solid #ddd;
+  padding: 12px 10px;
   text-align: center;
+  font-size: 14px;
 }
 
 .notice-container .notice-table th {
   background-color: #f8f9fa;
+  font-weight: 600;
 }
 
-.notice-container .notice-table button {
-  padding: 4px 8px;
+.notice-container .notice-table td button {
+  padding: 5px 10px;
+  font-size: 13px;
   margin: 0 2px;
-  font-size: 14px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
 }
 
-.notice-container .notice-table button:hover {
-  opacity: 0.8;
-}
-
-.notice-container .notice-table .edit-btn {
+.notice-container .notice-table td .edit-btn {
   background-color: #ffc107;
-  color: white;
+  color: #fff;
 }
 
-.notice-container .notice-table .delete-btn {
+.notice-container .notice-table td .delete-btn {
   background-color: #dc3545;
-  color: white;
+  color: #fff;
 }
 
-.notice-container .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+.notice-container .notice-categories {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.notice-container .modal .modal-content {
-  background-color: #fff;
-  width: 500px;
-  max-width: 90%;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-}
-
-.notice-container .modal .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.notice-container .modal input[type="text"],
-.notice-container .modal textarea,
-.notice-container .modal select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  font-size: 16px;
+.notice-container .notice-categories .category-btn {
+  padding: 6px 14px;
+  background-color: #e9ecef;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  font-size: 14px;
 }
 
-.notice-container .modal button {
-  padding: 8px 16px;
+.notice-container .notice-categories .category-btn.active {
   background-color: #007bff;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
-.notice-container .modal button:hover {
+
+.notice-container .notice-search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.notice-container .notice-search input,
+.notice-container .notice-search button {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+}
+
+.notice-container .notice-search button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.notice-container .notice-search button:hover {
   background-color: #0056b3;
 }
+.notice-container .add-notice-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #2a7ae4;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 400;
+}
+
+.notice-container .add-notice-btn:hover {
+  background-color: #1f5bbf;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.notice-container .add-notice-btn:active {
+  background-color: #174a9d;
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notice-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.notice-modal .notice-modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.notice-modal .notice-modal-content .notice-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.notice-modal .notice-modal-content h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.notice-modal .notice-modal-content label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.notice-modal .notice-modal-content input,
+.notice-modal .notice-modal-content textarea,
+.notice-modal .notice-modal-content select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.notice-modal .notice-modal-content textarea {
+  height: 100px;
+  resize: none;
+}
+
+.notice-modal .notice-modal-content .save-notice-btn {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.notice-modal .notice-modal-content .save-notice-btn:hover {
+  background: #0056b3;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: auto;
+}
+
+.pagination .page-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination .page-btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
 /* 모바일 크기 */
 @media (max-width: 768px) {
   .page-title {
@@ -1159,6 +1271,15 @@ nav {
     line-height: 40px;
     margin-top: 15px;
     color: #555;
+  }
+  .notice-container .notice-search {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .notice-container .notice-table th,
+  .notice-container .notice-table td {
+    font-size: 12px;
+    padding: 8px 5px;
   }
 }
 

@@ -3,98 +3,171 @@ const currentUser = JSON.parse(
   sessionStorage.getItem("loggedInUser") || "null"
 );
 
-const noticeListEl = document.getElementById("notice-list");
-const addNoticeBtn = document.getElementById("add-notice-btn");
-const modal = document.getElementById("notice-modal");
-const closeModal = modal.querySelector(".close");
+const noticeList = $("#notice-list");
+const addNoticeBtn = $("#add-notice-btn");
+const modal = $("#notice-modal");
+const saveNoticeBtn = $("#save-notice-btn");
+const noticesPerPage = 10;
+let currentPage = 1;
 
-if (currentUser) {
-  addNoticeBtn.style.display = "block"; 
-}
-
-function renderNotices(filter = {}) {
-  noticeListEl.innerHTML = "";
-
-  const filtered = notices.filter((n) => {
-    let match = true;
-    if (filter.category && filter.category !== "all")
-      match = match && n.category === filter.category;
-    if (filter.title) match = match && n.title.includes(filter.title);
-    if (filter.date) match = match && n.date === filter.date;
-    return match;
-  });
-
-  filtered.forEach((n, idx) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${idx + 1}</td>
-      <td>${n.title}</td>
-      <td>${n.category}</td>
-      <td>${n.author}</td>
-      <td>${n.date}</td>
-      <td>
-        ${
-          currentUser
-            ? `<button onclick="editNotice(${idx})">수정</button>
-        <button onclick="deleteNotice(${idx})">삭제</button>`
-            : ""
-        }
-      </td>
-    `;
-    noticeListEl.appendChild(tr);
-  });
-}
-
-addNoticeBtn.addEventListener("click", () => {
-  if (!currentUser) return alert("로그인이 필요합니다.");
-  modal.style.display = "block";
-});
-
-document.getElementById("save-notice-btn").addEventListener("click", () => {
-  const title = document.getElementById("notice-title").value;
-  const content = document.getElementById("notice-content").value;
-  const category = document.getElementById("notice-category").value;
-  const date = new Date().toISOString().split("T")[0];
-
-  notices.push({ title, content, category, author: currentUser.id, date });
-  localStorage.setItem("notices", JSON.stringify(notices));
-  modal.style.display = "none";
+$(function () {
+  if (currentUser) addNoticeBtn.show();
   renderNotices();
+
+  addNoticeBtn.on("click", () => {
+    if (!currentUser) return alert("로그인이 필요합니다.");
+    openNoticeModal();
+  });
+
+  $(".category-btn").on("click", function () {
+    $(".category-btn").removeClass("active");
+    $(this).addClass("active");
+    currentPage = 1;
+    renderNotices();
+  });
+
+  $("#search-btn").on("click", function () {
+    currentPage = 1;
+    renderNotices();
+  });
+
+  $("#notice-modal-close").on("click", closeModal);
+  modal.on("click", (e) => {
+    if ($(e.target).is(modal)) closeModal();
+  });
+  $(document).on("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  noticeList.on("click", ".edit-btn", function () {
+    editNotice($(this).data("idx"));
+  });
+  noticeList.on("click", ".delete-btn", function () {
+    deleteNotice($(this).data("idx"));
+  });
 });
 
+function closeModal() {
+  modal.fadeOut(200);
+  clearNoticeForm();
+}
 
-renderNotices();
+function renderNotices() {
+  noticeList.empty();
+  $("#pagination").remove();
 
+  const filter = {
+    category: $(".category-btn.active").data("category") || "all",
+    title: $("#search-title").val().trim(),
+    date: $("#search-date").val(),
+  };
 
-document.querySelectorAll(".category-btn").forEach((btn) =>
-  btn.addEventListener("click", () => {
-    document
-      .querySelectorAll(".category-btn")
-      .forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    renderNotices({ category: btn.dataset.category });
-  })
-);
+  const filtered = notices.filter(
+    (n) =>
+      (filter.category === "all" || n.category === filter.category) &&
+      (!filter.title || n.title.includes(filter.title)) &&
+      (!filter.date || n.date === filter.date)
+  );
 
+  const totalPages = Math.ceil(filtered.length / noticesPerPage) || 1;
+  const start = (currentPage - 1) * noticesPerPage;
+  filtered.slice(start, start + noticesPerPage).forEach((n, idx) => {
+    noticeList.append(`
+      <tr>
+        <td>${start + idx + 1}</td>
+        <td>${n.title}</td>
+        <td>${n.category}</td>
+        <td>${n.author}</td>
+        <td>${n.date}</td>
+        <td>
+          ${
+            currentUser
+              ? `
+            <button class="edit-btn" data-idx="${notices.indexOf(
+              n
+            )}">수정</button>
+            <button class="delete-btn" data-idx="${notices.indexOf(
+              n
+            )}">삭제</button>
+          `
+              : ""
+          }
+        </td>
+      </tr>
+    `);
+  });
 
-document.getElementById("search-btn").addEventListener("click", () => {
-  const title = document.getElementById("search-title").value.trim();
-  const date = document.getElementById("search-date").value;
-  renderNotices({ title, date });
-});
+  renderPagination(totalPages, filter);
+}
+
+function renderPagination(totalPages, filter) {
+  const $pagination = $('<div id="pagination" class="pagination"></div>');
+  for (let i = 1; i <= totalPages; i++) {
+    const $btn = $(`<button class="page-btn">${i}</button>`);
+    if (i === currentPage) $btn.addClass("active");
+    $btn.on("click", () => {
+      currentPage = i;
+      renderNotices();
+    });
+    $pagination.append($btn);
+  }
+  $(".notice-container").append($pagination);
+}
 
 function editNotice(idx) {
-  const n = notices[idx];
-  modal.style.display = "block";
-  document.getElementById("notice-title").value = n.title;
-  document.getElementById("notice-content").value = n.content;
-  document.getElementById("notice-category").value = n.category;
-
+  const notice = notices[idx];
+  if (!notice) return;
+  openNoticeModal(notice, idx);
 }
+
 function deleteNotice(idx) {
-  if (confirm("정말 삭제하시겠습니까?")) {
-    notices.splice(idx, 1);
+  if (!confirm("정말 삭제하시겠습니까?")) return;
+  notices.splice(idx, 1);
+  localStorage.setItem("notices", JSON.stringify(notices));
+  renderNotices();
+}
+
+function openNoticeModal(notice = null, idx = null) {
+  $("#notice-title").val(notice ? notice.title : "");
+  $("#notice-content").val(notice ? notice.content : "");
+  $("#notice-category").val(notice ? notice.category : "academic");
+  modal.fadeIn(200);
+
+  saveNoticeBtn.off("click").on("click", function () {
+    const title = $("#notice-title").val().trim();
+    const content = $("#notice-content").val().trim();
+    const category = $("#notice-category").val();
+    if (!title || !content) return alert("제목과 내용을 입력해주세요.");
+
+    const newNotice = {
+      title,
+      content,
+      category,
+      author: currentUser.name,
+      date: getTodayDate(),
+    };
+
+    if (notice && idx !== null) {
+      notices[idx] = { ...notice, ...newNotice };
+    } else {
+      notices.push(newNotice);
+    }
+
     localStorage.setItem("notices", JSON.stringify(notices));
     renderNotices();
-  }
+    closeModal();
+  });
+}
+
+function clearNoticeForm() {
+  $("#notice-title, #notice-content").val("");
+  $("#notice-category").val("academic");
+}
+
+function getTodayDate() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(d.getDate()).padStart(2, "0")}`;
 }

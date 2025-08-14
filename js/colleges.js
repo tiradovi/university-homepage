@@ -22,16 +22,16 @@ function departmentModal() {
   const url = `content/${collegeId}/${departmentId}.html`;
 
   $("#department-modal").addClass("show");
-  $("#modal-title").html(`${departmentName}`);
+  $("#department-modal-title").html(`${departmentName}`);
 
-  $("#modal-body").load(url, function (response, status) {
+  $("#department-modal-body").load(url, function (response, status) {
     if (status === "error") {
-      $("#modal-body").html("<p>정보를 불러오는 데 실패했습니다.</p>");
+      $("#department-modal-body").html("<p>정보를 불러오는 데 실패했습니다.</p>");
     }
   });
 }
 function closeModal(e) {
-  if (e.target === this || $(e.target).hasClass("modal-close")) {
+  if (e.target === this || $(e.target).hasClass("department-modal-close")) {
     $(this).removeClass("show");
   }
 }
