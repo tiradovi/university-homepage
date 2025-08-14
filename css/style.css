@@ -226,7 +226,7 @@ nav {
 }
 .introduce-container .tab-menu {
   display: flex;
-  width: 95%;
+  width: 75%;
   margin: auto;
 }
 .introduce-container .tab-btn {
@@ -252,8 +252,9 @@ nav {
 .introduce-container .tab-content {
   position: absolute;
   z-index: 0;
+  left: 10%;
+  width: 80%;
 
-  width: 100%;
   min-height: 150px;
   padding: 20px;
   border: 3px solid #0056b3;
@@ -262,12 +263,11 @@ nav {
   background: #f8f9fa;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(0);
-  transition: all 0.3s ease;
 }
 .introduce-container .tab-content.active {
   z-index: 1;
 
+  margin: auto;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -798,18 +798,15 @@ nav {
   width: 240px;
   height: 240px;
 }
-
 .mypage-container .profile-upload input[type="file"] {
   display: none;
 }
-
 .mypage-container .profile-upload .upload-label {
   display: block;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-
 .mypage-container .profile-upload .upload-label img {
   width: 100%;
   height: 100%;
@@ -817,7 +814,6 @@ nav {
   object-fit: cover;
   border: 2px solid #ccc;
 }
-
 .mypage-container .profile-upload .upload-label p {
   position: absolute;
   bottom: 10px;
@@ -836,7 +832,6 @@ nav {
   cursor: pointer;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
-
 .mypage-container .change-password-container button {
   background-color: rgba(0, 0, 0, 0.07);
   display: none;
@@ -864,12 +859,10 @@ nav {
 .mypage-container .change-password-container button.active {
   display: flex;
 }
-
 .mypage-container .change-password-container .password-section {
   display: none;
   margin-top: 20px;
 }
-
 .mypage-container .change-password-container .password-section.active {
   display: flex;
 }
@@ -879,7 +872,6 @@ nav {
   height: 60px;
   font-size: 24px;
 }
-
 .mypage-container .change-password-container p {
   color: red;
   display: none;
@@ -889,7 +881,6 @@ nav {
   display: block;
   text-align: center;
 }
-
 .mypage-container p {
   font-size: 26px;
   line-height: 40px;
@@ -899,6 +890,129 @@ nav {
 .mypage-container .logout-btn {
   margin-top: 40px;
   width: 100%;
+}
+
+/* 공지사항 */
+.notice-container {
+  width: 90%;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+.notice-container .notice-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.notice-container .notice-controls select,
+.notice-container .notice-controls input[type="text"] {
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
+.notice-container #add-notice-btn {
+  display: none;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.notice-container #add-notice-btn:hover {
+  background-color: #0056b3;
+}
+
+.notice-container .notice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.notice-container .notice-table th,
+.notice-container .notice-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.notice-container .notice-table th {
+  background-color: #f8f9fa;
+}
+
+.notice-container .notice-table button {
+  padding: 4px 8px;
+  margin: 0 2px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.notice-container .notice-table button:hover {
+  opacity: 0.8;
+}
+
+.notice-container .notice-table .edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.notice-container .notice-table .delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.notice-container .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.notice-container .modal .modal-content {
+  background-color: #fff;
+  width: 500px;
+  max-width: 90%;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.notice-container .modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.notice-container .modal input[type="text"],
+.notice-container .modal textarea,
+.notice-container .modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.notice-container .modal button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.notice-container .modal button:hover {
+  background-color: #0056b3;
 }
 /* 모바일 크기 */
 @media (max-width: 768px) {
@@ -926,9 +1040,20 @@ nav {
     font-size: 1.8rem;
     font-weight: bold;
   }
+  .introduce-container .tab-menu {
+    width: 95%;
+  }
+  .introduce-container .tab-btn {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .introduce-container .tab-content {
+    width: 100%;
+    left: 0;
+  }
   .introduce-container .tab-content .intro-title-btn {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 
     font-size: 16px;
   }
@@ -1014,6 +1139,7 @@ nav {
     color: #555;
   }
 }
+
 @media (min-width: 769px) {
   .nav-container .nav-menu {
     position: static;

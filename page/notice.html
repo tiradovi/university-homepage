@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>공지사항</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -52,6 +52,67 @@
         <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
+
+    <div class="notice-container">
+      <h1>공지사항</h1>
+
+      <!-- 카테고리 탭 -->
+      <div class="notice-categories">
+        <button class="category-btn active" data-category="all">전체</button>
+        <button class="category-btn" data-category="academic">학사</button>
+        <button class="category-btn" data-category="scholarship">장학</button>
+        <button class="category-btn" data-category="recruit">채용</button>
+        <button class="category-btn" data-category="event">행사</button>
+      </div>
+
+      <!-- 검색 -->
+      <div class="notice-search">
+        <input type="text" id="search-title" placeholder="제목 검색" />
+        <input type="date" id="search-date" />
+        <button id="search-btn">검색</button>
+      </div>
+
+      <!-- 공지 목록 -->
+      <table class="notice-table">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>카테고리</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody id="notice-list">
+     
+        </tbody>
+      </table>
+
+
+      <button id="add-notice-btn" style="display: none">공지 작성</button>
+    </div>
+
+
+    <div id="notice-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>공지 작성</h2>
+        <label>제목</label>
+        <input type="text" id="notice-title" />
+        <label>내용</label>
+        <textarea id="notice-content"></textarea>
+        <label>카테고리</label>
+        <select id="notice-category">
+          <option value="academic">학사</option>
+          <option value="scholarship">장학</option>
+          <option value="recruit">채용</option>
+          <option value="event">행사</option>
+        </select>
+        <button id="save-notice-btn">저장</button>
+      </div>
+    </div>
+
     <script src="../js/common.js"></script>
     <script src="../js/notice.js"></script>
   </body>

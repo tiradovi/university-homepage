@@ -22,7 +22,6 @@ function bindCommonEvents() {
   $("#nav-toggle").on("click", toggleNavigation);
   $(document).on("click", "#open-login-popup", openLoginPopupEvent);
   $(document).on("click", "#logout-btn", handleLogout);
-  $("#extend-btn").on("click", handleExtendSession);
 }
 
 function toggleNavigation() {
