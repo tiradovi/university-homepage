@@ -838,6 +838,7 @@ nav {
 }
 
 .mypage-container .change-password-container button {
+  background-color: rgba(0, 0, 0, 0.07);
   display: none;
   width: 150px;
   height: 60px;
@@ -849,9 +850,17 @@ nav {
   color: #555;
   margin: 50px auto;
   border: 1px solid #ccc;
-  transition: all 0.3s;
+  margin: 0;
 }
-
+.mypage-container .change-password-container button:first-child {
+  margin: 18px auto;
+}
+.mypage-container .change-password-container button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.mypage-container .change-password-container button:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 .mypage-container .change-password-container button.active {
   display: flex;
 }
@@ -862,7 +871,13 @@ nav {
 }
 
 .mypage-container .change-password-container .password-section.active {
-  display: block;
+  display: flex;
+}
+.mypage-container .change-password-container .password-section.active input {
+  padding: 8px;
+  width: 80%;
+  height: 60px;
+  font-size: 24px;
 }
 
 .mypage-container .change-password-container p {
@@ -872,6 +887,7 @@ nav {
 }
 .mypage-container .change-password-container p.active {
   display: block;
+  text-align: center;
 }
 
 .mypage-container p {
@@ -985,7 +1001,11 @@ nav {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    margin: 20px auto;
+    margin: 0;
+  }
+  .mypage-container .change-password-container .password-section.active input {
+    height: 40px;
+    font-size: 14px;
   }
   .mypage-container p {
     font-size: 16px;
