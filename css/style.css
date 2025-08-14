@@ -786,48 +786,74 @@ nav {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.profile-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.upload-label {
-  cursor: pointer;
-  text-align: center;
-}
-
-.upload-label img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.upload-label span {
-  display: block;
-  font-size: 14px;
-  color: #555;
-}
-
-#profile-img {
-  display: none;
-}
-
 .mypage-container h2 {
   text-align: center;
-  font-size: 28px;
+  font-size: 80px;
   margin-bottom: 50px;
   color: #333;
 }
+.mypage-container .profile-upload {
+  position: relative;
+  margin: auto;
+  width: 240px;
+  height: 240px;
+}
+
+.mypage-container .profile-upload input[type="file"] {
+  display: none;
+}
+
+.mypage-container .profile-upload .upload-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.mypage-container .profile-upload .upload-label img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.mypage-container .profile-upload .upload-label p {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 65px;
+  line-height: 42px;
+  text-align: center;
+
+  border: 1px solid #dfdfdf;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(240, 239, 239);
+
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.mypage-container .change-password-container button {
+  background-color: rgba(0, 0, 0, 0.07);
+  width: 150px;
+  height: 60px;
+  padding: auto;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  color: #555;
+  margin: 50px auto;
+}
 
 .mypage-container p {
-  font-size: 16px;
+  font-size: 26px;
   line-height: 40px;
-  margin: 10px 0;
+  margin-top: 15px;
   color: #555;
 }
 .mypage-container .logout-btn {
@@ -893,6 +919,55 @@ nav {
   }
   .regist-container table tr .btn-area {
     text-align: right;
+  }
+  .mypage-container h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 50px;
+    color: #333;
+  }
+  .mypage-container .profile-upload {
+    position: relative;
+    margin: auto;
+    width: 120px;
+    height: 120px;
+  }
+  .mypage-container .profile-upload .upload-label p {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 25px;
+    height: 25px;
+    font-size: 30px;
+    line-height: 23px;
+    text-align: center;
+
+    border: 1px solid #dfdfdf;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(240, 239, 239);
+
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+  .mypage-container .change-password-container button {
+    background-color: rgba(0, 0, 0, 0.07);
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    margin: 20px auto;
+  }
+  .mypage-container p {
+    font-size: 16px;
+    line-height: 40px;
+    margin-top: 15px;
+    color: #555;
   }
 }
 @media (min-width: 769px) {

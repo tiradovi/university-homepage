@@ -66,15 +66,43 @@
         <label for="profile-img" class="upload-label">
           <img
             id="profile-preview"
-            src="../img/university.png"
+            src="../img/profile.png"
             alt="프로필 업로드"
           />
-          <span>클릭해서 이미지를 업로드하세요</span>
+          <p>+</p>
         </label>
       </div>
 
-      <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
+      <div class="change-password-container">
+        <button id="change-password-btn">비밀번호 변경</button>
+        <div id="current-password-section">
+          <input
+            type="password"
+            id="current-password"
+            placeholder="현재 비밀번호 입력"
+          />
+          <button id="verify-password-btn">확인</button>
+          <p id="password-error">
+            비밀번호가 일치하지 않습니다.
+          </p>
+        </div>
 
+        <div id="new-password-section">
+          <input
+            type="password"
+            id="new-password"
+            placeholder="새 비밀번호 입력"
+          />
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="비밀번호 확인"
+          />
+          <button id="update-password-btn">변경 완료</button>
+        </div>
+      </div>
+
+      <p><strong id="user-name"></strong>님의 마이페이지입니다.</p>
       <p>아이디: <span id="user-id"></span></p>
       <p>성별: <span id="user-gender"></span></p>
       <p>최근 접속 시간: <span id="last-login-time"></span></p>
@@ -82,7 +110,7 @@
       <button id="logout-btn" class="logout-btn">로그아웃</button>
     </div>
 
-    <script src="../js/index.js"></script>
+    <script src="../js/common.js"></script>
     <script src="../js/mypage.js"></script>
   </body>
 </html>
