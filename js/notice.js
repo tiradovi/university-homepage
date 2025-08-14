@@ -1,19 +1,18 @@
 let notices = getStorage("notices");
 
 const noticeList = $("#notice-list");
-const addNoticeBtn = $("#add-notice-btn");
 const modal = $("#notice-modal");
-const saveNoticeBtn = $("#save-notice-btn");
+
 const noticesPerPage = 10;
 let currentPage = 1;
 
 $(function () {
   const currentUser = getSession("loggedInUser");
-  if (currentUser) addNoticeBtn.show();
+  if (currentUser) $("#add-notice-btn").show();
 
   renderNotices();
 
-  addNoticeBtn.on("click", () => {
+  $("#add-notice-btn").on("click", () => {
     const user = getSession("loggedInUser");
     if (!user) {
       alert("로그인이 필요합니다.");
@@ -130,7 +129,7 @@ function editNotice(idx) {
 function deleteNotice(idx) {
   if (!confirm("정말 삭제하시겠습니까?")) return;
   notices.splice(idx, 1);
-  localStorage.setItem("notices", JSON.stringify(notices));
+  setStorage("notices", notices);
   renderNotices();
 }
 
@@ -141,30 +140,32 @@ function openNoticeModal(notice = null, idx = null) {
   $("#notice-category").val(notice ? notice.category : "academic");
   modal.fadeIn(200);
 
-  saveNoticeBtn.off("click").on("click", function () {
-    const title = $("#notice-title").val().trim();
-    const content = $("#notice-content").val().trim();
-    const category = $("#notice-category").val();
-    if (!title || !content) return alert("제목과 내용을 입력해주세요.");
+  $("#save-notice-btn")
+    .off("click")
+    .on("click", function () {
+      const title = $("#notice-title").val().trim();
+      const content = $("#notice-content").val().trim();
+      const category = $("#notice-category").val();
+      if (!title || !content) return alert("제목과 내용을 입력해주세요.");
 
-    const newNotice = {
-      title,
-      content,
-      category,
-      author: currentUser.name,
-      date: getTodayDate(),
-    };
+      const newNotice = {
+        title,
+        content,
+        category,
+        author: currentUser.name,
+        date: getTodayDate(),
+      };
 
-    if (notice && idx !== null) {
-      notices[idx] = { ...notice, ...newNotice };
-    } else {
-      notices.push(newNotice);
-    }
+      if (notice && idx !== null) {
+        notices[idx] = { ...notice, ...newNotice };
+      } else {
+        notices.push(newNotice);
+      }
 
-    localStorage.setItem("notices", JSON.stringify(notices));
-    renderNotices();
-    closeModal();
-  });
+      setStorage("notices", notices);
+      renderNotices();
+      closeModal();
+    });
 }
 
 function clearNoticeForm() {
