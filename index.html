@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인페이지</title>
+    <title>우리대학교 메인페이지</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/png" href="img/logo/logo.png" />
@@ -49,6 +49,27 @@
       </div>
     </nav>
 
+    <section class="quick-links">
+      <div class="quick-container">
+        <a href="#" class="quick-item">
+          <img src="img/icons/admission.png" alt="입학안내" />
+          <span>입학안내</span>
+        </a>
+        <a href="#" class="quick-item">
+          <img src="img/icons/schedule.png" alt="학사일정" />
+          <span>학사일정</span>
+        </a>
+        <a href="page/#" class="quick-item">
+          <img src="img/icons/library.png" alt="도서관" />
+          <span>도서관</span>
+        </a>
+        <a href="page/mypage.html" class="quick-item">
+          <img src="img/icons/mypage.png" alt="마이페이지" />
+          <span>마이페이지</span>
+        </a>
+      </div>
+    </section>
+
     <section class="banner">
       <div class="banner-container">
         <button id="prev"><</button>
@@ -67,26 +88,72 @@
       </div>
     </section>
 
+    <section class="hero">
+      <div class="hero-container">
+        <h1>당신의 미래, 우리의 열정</h1>
+        <p>최고의 교육 환경과 혁신적인 프로그램을 제공합니다.</p>
+        <a href="#" class="admission-btn">입학안내 보기</a>
+      </div>
+    </section>
+
     <section class="notice-preview">
-      <div id="notice-preview-container" class="notice-preview-container">
+      <div class="notice-preview-container">
         <div class="notice-header">
           <h3>공지사항</h3>
           <a href="page/notice.html" class="more-btn">더보기 +</a>
         </div>
-        <ul class="notice-list"></ul>
+        <ul class="notice-list">
+          <li>2025학년도 1학기 등록 안내</li>
+          <li>교내 장학금 신청 마감일 안내</li>
+          <li>도서관 이용 시간 변경 안내</li>
+        </ul>
       </div>
     </section>
 
-    <!-- 환영 팝업 
-    <div class="popup" id="welcomePopup">
-      <div class="popup-content">
-        <p>우리 대학교 홈페이지에 오신 것을 환영합니다!</p>
-        <button id="closePopup">닫기</button>
+    <section class="schedule-preview">
+      <div class="schedule-container">
+        <h3>주요 학사일정</h3>
+        <ul>
+          <li>2월 28일 - 개강</li>
+          <li>3월 10일 - 수강신청 마감</li>
+          <li>6월 15일 - 기말고사 시작</li>
+        </ul>
+        <a href="page/schedule.html" class="more-btn">전체일정 보기 +</a>
       </div>
-    </div>
--->
+    </section>
 
+    <section class="news-preview">
+      <div class="news-container">
+        <h3>학교 소식</h3>
+        <a href="page/news.html" class="more-btn">더보기 +</a>
+        <div class="news-list">
+          <article>
+            <img src="img/news/news1.png" alt="뉴스1" />
+            <h4>국제 학술대회 개최</h4>
+          </article>
+          <article>
+            <img src="img/news/news2.png" alt="뉴스2" />
+            <h4>신규 전공 개설 안내</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p>ⓒ 2025 한국대학교 | 주소: 서울시 강남구 어딘가 123</p>
+        <p>문의: 02-123-4567 | 이메일: info@university.ac.kr</p>
+        <div class="social-links">
+          <a href="#"><img src="img/icons/youtube.png" alt="유튜브" /></a>
+          <a href="#"><img src="img/icons/instagram.png" alt="인스타그램" /></a>
+          <a href="#"><img src="img/icons/facebook.png" alt="페이스북" /></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 맨 위로 버튼 -->
     <button id="scroll-to-top" class="scroll-to-top" title="맨 위로">↑</button>
+
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>
   </body>

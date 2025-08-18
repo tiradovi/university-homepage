@@ -180,7 +180,7 @@ nav {
   position: relative;
 
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   border-radius: 10px;
 
@@ -197,12 +197,12 @@ nav {
 .banner-container .slide {
   flex-shrink: 0;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
 }
 .banner-container .slide img {
   display: block;
   width: 100%;
-  height: 700px;
+  height: 800px;
   border-radius: 10px;
 }
 
@@ -259,7 +259,7 @@ nav {
 }
 
 .notice-preview .notice-preview-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   background: #fff;
   border-radius: 8px;
@@ -394,7 +394,128 @@ nav {
   font-size: 14px;
   list-style: none;
 }
+/* 히어로 */
+.hero {
+  margin: 25px auto;
+  background: url("../img/hero.png") center/cover no-repeat;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero .hero-container h1 {
+  font-size: 3rem;
+}
+.hero .hero-container p {
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+}
+.hero .hero-container .admission-btn {
+  background: #ffcc00;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #000;
+}
+.hero .hero-container .admission-btn:hover {
+  background: #c59e03;
+}
 
+/* 퀵메뉴 */
+.quick-links {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 15px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.quick-links .quick-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.quick-links .quick-container .quick-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  width: 60px;
+}
+
+.quick-links .quick-container .quick-item img {
+  width: 40px;
+}
+
+.quick-links .quick-container .quick-item span {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.quick-links .quick-container .quick-item:hover {
+  transform: scale(1.1);
+  color: blue;
+}
+
+/* 공지사항 */
+.notice-preview,
+.schedule-preview,
+.news-preview {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.notice-header,
+.news-container h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.more-btn {
+  color: #004080;
+  font-weight: bold;
+}
+
+/* 뉴스 섹션 */
+.news-list {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.news-list article {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.news-list img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* 푸터 */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+}
+.footer .social-links img {
+  width: 30px;
+  margin: 0 10px;
+}
 /**   학교 소개    ***/
 .introduce-container {
   position: relative;
@@ -1657,6 +1778,9 @@ nav {
 
     font-size: 1.8rem;
     font-weight: bold;
+  }
+  .quick-links {
+    display: none;
   }
   .notice-preview .notice-preview-container .notice-list .notice-item {
     flex-direction: column;
