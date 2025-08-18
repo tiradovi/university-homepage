@@ -829,7 +829,6 @@ nav {
   margin-top: -30px;
   margin-bottom: 30px;
 
-  
   background-color: #e9ebef;
 
   cursor: pointer;
@@ -1470,25 +1469,21 @@ nav {
   margin: 40px auto;
   padding: 0 20px;
 }
-
 .resources-container .resources-header {
   margin-bottom: 30px;
 }
-
 .resources-container .resources-header .category-filter {
   font-size: 1.3rem;
   color: #333;
   margin-bottom: 15px;
   font-weight: 600;
 }
-
 .resources-container .resources-header .category-filter .category-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
 }
-
 .resources-container
   .resources-header
   .category-filter
@@ -1503,7 +1498,6 @@ nav {
   font-weight: 500;
   color: #666;
 }
-
 .resources-container
   .resources-header
   .category-filter
@@ -1514,7 +1508,6 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
-
 .resources-container
   .resources-header
   .category-filter
@@ -1526,7 +1519,6 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
-
 .resources-container .search-controls {
   display: flex;
   justify-content: space-between;
@@ -1534,14 +1526,12 @@ nav {
   margin-bottom: 30px;
   gap: 20px;
 }
-
 .resources-container .search-controls .search-bar {
   flex: 1;
   position: relative;
   width: 80%;
   max-width: 700px;
 }
-
 .resources-container .search-controls .search-bar input {
   width: 100%;
   padding: 15px 50px 15px 20px;
@@ -1550,13 +1540,11 @@ nav {
   font-size: 16px;
   transition: all 0.3s ease;
 }
-
 .resources-container .search-controls .search-bar input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
-
 .resources-container .search-controls .search-icon {
   position: absolute;
   right: 20px;
@@ -1565,7 +1553,6 @@ nav {
   font-size: 18px;
   color: #666;
 }
-
 .resources-container .sort-controls select {
   padding: 12px 20px;
   border: 2px solid #ddd;
@@ -1575,12 +1562,10 @@ nav {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .resources-container .sort-controls select:focus {
   outline: none;
   border-color: #007bff;
 }
-
 .resources-container .resources-count {
   font-size: 16px;
   color: #666;
@@ -1588,14 +1573,12 @@ nav {
   padding-bottom: 10px;
   border-bottom: 1px solid #1cbcec;
 }
-
 .resources-container .resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
   margin-bottom: 40px;
 }
-
 .resource-card {
   background: white;
   border: 1px solid #e0e0e0;
@@ -1604,30 +1587,25 @@ nav {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 .resource-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-color: #007bff;
 }
-
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px 0;
 }
-
 .file-info {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .file-icon {
   font-size: 24px;
 }
-
 .file-type {
   font-size: 12px;
   font-weight: 600;
@@ -1636,7 +1614,6 @@ nav {
   padding: 4px 8px;
   border-radius: 4px;
 }
-
 .category-tag {
   font-size: 12px;
   font-weight: 600;
@@ -1644,11 +1621,9 @@ nav {
   padding: 6px 12px;
   border-radius: 15px;
 }
-
 .card-content {
   padding: 15px 20px;
 }
-
 .resource-title {
   font-size: 1.2rem;
   font-weight: 600;
@@ -1660,7 +1635,6 @@ nav {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .resource-description {
   color: #666;
   font-size: 14px;
@@ -1671,12 +1645,10 @@ nav {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .resource-meta {
   border-top: 1px solid #f0f0f0;
   padding-top: 15px;
 }
-
 .meta-row {
   display: flex;
   justify-content: space-between;
@@ -1684,25 +1656,20 @@ nav {
   margin-bottom: 8px;
   font-size: 13px;
 }
-
 .meta-row:last-child {
   margin-bottom: 0;
 }
-
 .meta-label {
   color: #888;
   font-weight: 500;
 }
-
 .meta-value {
   color: #333;
   font-weight: 600;
 }
-
 .card-footer {
   padding: 0 20px 20px;
 }
-
 .download-btn {
   width: 100%;
   padding: 12px;
@@ -1719,68 +1686,20 @@ nav {
   justify-content: center;
   gap: 8px;
 }
-
 .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
-
 .download-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
 }
-
 .download-icon {
   font-size: 16px;
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-  .resources-container {
-    padding: 0 15px;
-    margin: 20px auto;
-  }
-
-  .search-controls {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .search-bar {
-    max-width: none;
-  }
-
-  .resources-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .category-buttons {
-    gap: 8px;
-  }
-
-  .category-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  .resource-card {
-    margin-bottom: 15px;
-  }
-
-  .toast {
-    right: 15px;
-    left: 15px;
-    transform: translateY(-100px);
-  }
-
-  .toast.show {
-    transform: translateY(0);
-  }
-}
-
-/* 모바일 크기 */
+/* 반응형 크기 */
 @media (max-width: 768px) {
   .page-title {
     display: inline;
@@ -1954,6 +1873,41 @@ nav {
     font-size: 12px;
     padding: 8px 5px;
   }
+  .resources-container {
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+
+  .resources-container .search-controls {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .resources-container .search-controls .search-bar {
+    max-width: none;
+  }
+
+  .resources-container .resources-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .resources-container .resources-header .category-filter .category-buttons {
+    gap: 8px;
+  }
+
+  .resources-container
+    .resources-header
+    .category-filter
+    .category-buttons
+    .category-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .resource-card {
+    margin-bottom: 15px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -1967,14 +1921,20 @@ nav {
     background: none;
   }
 }
+
 /* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   body {
     color: #f0f0f0;
 
-    background-color: #121212;
+    background-color: #797878;
   }
+  .page-title {
+    color: #ffffff;
+    border: 5px solid #012852;
 
+    background-color: hsl(211, 100%, 18%);
+  }
   nav {
     background: linear-gradient(135deg, #1f1f6f 0%, #3030a7 50%, #5555f3 100%);
   }
@@ -2009,10 +1969,112 @@ nav {
 
     background: rgba(255, 255, 255, 0.2);
   }
+  .notice-preview .notice-preview-container {
+    background: #cfcfcf;
 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  }
+  .schedule-preview {
+    color: black;
+    background-color: #ffffff;
+  }
+  .schedule-preview .schedule-grid .day {
+    border: 1px solid #000000;
+  }
+  .schedule-preview .schedule-grid .day.event {
+    background-color: #c1dbf2;
+    border-color: #007bff;
+  }
+  .news-preview {
+    background-color: #dbeff7;
+    color: black;
+  }
   .popup-content {
     color: #fff;
 
     background: #2a2a2a;
+  }
+  .introduce-container .tab-btn {
+    border: 2px solid #000000;
+
+    background: #c2c6ed;
+    color: white;
+    cursor: pointer;
+  }
+  .introduce-container .tab-btn.active {
+    background: #005fc5;
+    color: black;
+  }
+  .introduce-container .tab-content {
+    color: black;
+  }
+  .introduce-container .tab-content .intro-title-btn:hover,
+  .introduce-container .tab-content .intro-title-btn.active {
+    color: white;
+
+    background-color: #69a8ec;
+    transform: scale(1.05);
+  }
+  .introduce-container .tab-content .timeline-container h2 {
+    color: black;
+  }
+  .introduce-container .tab-content .timeline-container .timeline-content {
+    background: #b0b0b0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .college-container .college-department {
+    background-color: #012665;
+    border: 1px solid #ccc;
+  }
+  .college-container .college-department:hover {
+    background-color: #013ea7;
+  }
+  .college-container .college-department:active {
+    background-color: #024ccd;
+  }
+  .college-container .department-list {
+    background-color: #2e2f2f;
+  }
+  .college-container .department-list li:hover {
+    background-color: #949596;
+  }
+  .college-container .department-list li:active {
+    background-color: #656565;
+  }
+  .department-modal .department-modal-content {
+    background: rgb(196, 195, 195);
+  }
+  .department-modal .department-modal-content .department-modal-head {
+    background-color: #024185;
+  }
+  .department-modal .department-modal-content .department-modal-body {
+    border: 1px solid black;
+    background: rgb(71, 71, 71);
+    color: gainsboro;
+  }
+  .notice-container {
+    background-color: #515151;
+    padding: 20px;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .notice-container .notice-table th,
+  .notice-container .notice-table td {
+    border: 1px solid #4a4a4a;
+    padding: 12px 10px;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    background-color: #e7e6e6;
+  }
+
+  .notice-container .notice-table th {
+    background-color: #cbcbcb;
+    font-weight: 600;
+  }
+  .resources-container .resources-count {
+    color: #000000;
+    border-bottom: 1px solid #022a36;
   }
 }
