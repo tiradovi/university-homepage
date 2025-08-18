@@ -1378,7 +1378,8 @@ nav {
 .resources-container .search-controls .search-bar {
   flex: 1;
   position: relative;
-  max-width: 400px;
+  width: 80%;
+  max-width: 700px;
 }
 
 .resources-container .search-controls .search-bar input {
@@ -1420,15 +1421,15 @@ nav {
   border-color: #007bff;
 }
 
-.resources-container .resources-list .resources-count {
+.resources-container .resources-count {
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #1cbcec;
 }
 
-.resources-container .resources-list .resources-count .resources-grid {
+.resources-container .resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
@@ -1573,7 +1574,6 @@ nav {
 .download-icon {
   font-size: 16px;
 }
-
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {

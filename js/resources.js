@@ -1,6 +1,7 @@
-let resourcesData = [],
-  categoryColors = {},
-  fileTypeIcons = {};
+let resourcesData = [];
+let categoryColors = {};
+let fileTypeIcons = {};
+
 let currentCategory = "전체",
   searchTerm = "";
 
@@ -35,14 +36,14 @@ $(function () {
 
       resource.downloadCount++;
       $(this).prop("disabled", true).html("⏳ 다운로드 중...");
-      $(`.resource-card[data-id="${resourceId}"] .meta-value`)
+      $(`.resources-list .resource-card[data-id="${resourceId}"] .meta-value`)
         .last()
         .text(`${resource.downloadCount.toLocaleString()}회`);
 
       setTimeout(() => {
         const link = document.createElement("a");
-        link.href = `../files/${resource.fileName}`;
-        link.download = resource.fileName;
+        link.href = `../files/example.txt`;
+        link.download = "example.txt";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
