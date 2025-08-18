@@ -3,6 +3,7 @@ $(function () {
   updateColorModeLogo();
   watchColorModeChange();
   updateLoginStatus();
+  scrollBtn();
 });
 
 function getStorage(key) {
@@ -78,4 +79,20 @@ function updateLoginStatus() {
 function handleLogout() {
   sessionStorage.removeItem("loggedInUser");
   location.reload();
+}
+function scrollBtn() {
+  const scrollBtn = $("#scroll-to-top");
+
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 200) {
+      scrollBtn.fadeIn();
+    } else {
+      scrollBtn.fadeOut();
+    }
+  });
+
+
+  scrollBtn.on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  });
 }
