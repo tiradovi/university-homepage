@@ -31,7 +31,7 @@ $(function () {
     .on("change", "#sort-select", renderResourcesList)
     .on("click", ".download-btn", function () {
       const resourceId = +$(this).data("id");
-      const resource = resourcesData.find((r) => r.id === resourceId);
+      const resource = resourcesData.find((resources) => resources.id === resourceId);
       if (!resource) return alert("파일을 찾을 수 없습니다.");
 
       resource.downloadCount++;
@@ -54,10 +54,10 @@ $(function () {
 
 function renderResourcesList() {
   const filtered = resourcesData.filter(
-    (r) =>
-      (currentCategory === "전체" || r.category === currentCategory) &&
-      (r.title.toLowerCase().includes(searchTerm) ||
-        r.description.toLowerCase().includes(searchTerm))
+    (resources) =>
+      (currentCategory === "전체" || resources.category === currentCategory) &&
+      (resources.title.toLowerCase().includes(searchTerm) ||
+        resources.description.toLowerCase().includes(searchTerm))
   );
 
   const sortType = $("#sort-select").val() || "latest";
@@ -77,35 +77,35 @@ function renderResourcesList() {
       <div class="resources-grid">
         ${filtered
           .map(
-            (r) => `
-          <div class="resource-card" data-id="${r.id}">
+            (resources) => `
+          <div class="resource-card" data-id="${resources.id}">
             <div class="card-header">
               <div class="file-info">
                 <span class="file-icon">${
-                  fileTypeIcons[r.fileType] || "📄"
+                  fileTypeIcons[resources.fileType] || "📄"
                 }</span>
-                <span class="file-type">${r.fileType}</span>
+                <span class="file-type">${resources.fileType}</span>
               </div>
               <span class="category-tag" style="background-color: ${
-                categoryColors[r.category] || "#666"
-              }">${r.category}</span>
+                categoryColors[resources.category] || "#666"
+              }">${resources.category}</span>
             </div>
             <div class="card-content">
-              <h3 class="resource-title">${r.title}</h3>
-              <p class="resource-description">${r.description}</p>
+              <h3 class="resource-title">${resources.title}</h3>
+              <p class="resource-description">${resources.description}</p>
               <div class="resource-meta">
                 <div class="meta-row"><span class="meta-label">파일크기:</span> <span class="meta-value">${
-                  r.fileSize
+                  resources.fileSize
                 }</span></div>
                 <div class="meta-row"><span class="meta-label">업로드:</span> <span class="meta-value">${
-                  r.uploadDate
+                  resources.uploadDate
                 }</span></div>
-                <div class="meta-row"><span class="meta-label">다운로드:</span> <span class="meta-value">${r.downloadCount.toLocaleString()}회</span></div>
+                <div class="meta-row"><span class="meta-label">다운로드:</span> <span class="meta-value">${resources.downloadCount.toLocaleString()}회</span></div>
               </div>
             </div>
             <div class="card-footer">
               <button class="download-btn" data-id="${
-                r.id
+                resources.id
               }">⬇️ 다운로드</button>
             </div>
           </div>`

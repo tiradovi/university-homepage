@@ -1579,7 +1579,7 @@ nav {
   gap: 25px;
   margin-bottom: 40px;
 }
-.resource-card {
+.resources-container .resources-grid .resource-card {
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -1587,26 +1587,36 @@ nav {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-.resource-card:hover {
+.resources-container .resources-grid .resource-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   border-color: #007bff;
 }
-.card-header {
+.resources-container .resources-grid .resource-card .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px 0;
 }
-.file-info {
+.resources-container .resources-grid .resource-card .card-header .file-info {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.file-icon {
+.resources-container
+  .resources-grid
+  .resource-card
+  .card-header
+  .file-info
+  .file-icon {
   font-size: 24px;
 }
-.file-type {
+.resources-container
+  .resources-grid
+  .resource-card
+  .card-header
+  .file-info
+  .file-type {
   font-size: 12px;
   font-weight: 600;
   color: #666;
@@ -1614,17 +1624,17 @@ nav {
   padding: 4px 8px;
   border-radius: 4px;
 }
-.category-tag {
+.resources-container .resources-grid .resource-card .card-header .category-tag {
   font-size: 12px;
   font-weight: 600;
   color: white;
   padding: 6px 12px;
   border-radius: 15px;
 }
-.card-content {
+.resources-container .resources-grid .card-content {
   padding: 15px 20px;
 }
-.resource-title {
+.resources-container .resources-grid .card-content .resource-title {
   font-size: 1.2rem;
   font-weight: 600;
   color: #333;
@@ -1635,7 +1645,7 @@ nav {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.resource-description {
+.resources-container .resources-grid .card-content .resource-description {
   color: #666;
   font-size: 14px;
   line-height: 1.5;
@@ -1645,32 +1655,46 @@ nav {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.resource-meta {
+.resources-container .resources-grid .card-content .resource-meta {
   border-top: 1px solid #f0f0f0;
   padding-top: 15px;
 }
-.meta-row {
+.resources-container .resources-grid .card-content .resource-meta .meta-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
   font-size: 13px;
 }
-.meta-row:last-child {
+.resources-container
+  .resources-grid
+  .card-content
+  .resource-meta
+  .meta-row:last-child {
   margin-bottom: 0;
 }
-.meta-label {
+.resources-container
+  .resources-grid
+  .card-content
+  .resource-meta
+  .meta-row
+  .meta-label {
   color: #888;
   font-weight: 500;
 }
-.meta-value {
+.resources-container
+  .resources-grid
+  .card-content
+  .resource-meta
+  .meta-row
+  .meta-value {
   color: #333;
   font-weight: 600;
 }
-.card-footer {
+.resources-container .resources-grid .card-footer {
   padding: 0 20px 20px;
 }
-.download-btn {
+.resources-container .resources-grid .card-footer .download-btn {
   width: 100%;
   padding: 12px;
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -1686,17 +1710,22 @@ nav {
   justify-content: center;
   gap: 8px;
 }
-.download-btn:hover {
+.resources-container
+  .resources-grid
+  .card-footer
+  .download-btn
+  .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
-.download-btn:disabled {
+.resources-container
+  .resources-grid
+  .card-footer
+  .download-btn
+  .download-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
-}
-.download-icon {
-  font-size: 16px;
 }
 
 /* 반응형 크기 */
@@ -1905,7 +1934,7 @@ nav {
     font-size: 14px;
   }
 
-  .resource-card {
+  .resources-container .resources-grid .resource-card {
     margin-bottom: 15px;
   }
 }
