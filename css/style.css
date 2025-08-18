@@ -946,11 +946,14 @@ nav {
   margin: 0 2px;
 }
 
+.notice-container .notice-table td .view-btn {
+  background-color: #09a041;
+  color: #fff;
+}
 .notice-container .notice-table td .edit-btn {
   background-color: #ffc107;
   color: #fff;
 }
-
 .notice-container .notice-table td .delete-btn {
   background-color: #dc3545;
   color: #fff;
@@ -1027,6 +1030,30 @@ nav {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+.notice-container .pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: auto;
+}
+
+.notice-container .pagination .page-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.notice-container .pagination .page-btn.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* 공지 모달창 */
 .notice-modal {
   display: none;
   position: fixed;
@@ -1046,6 +1073,7 @@ nav {
   margin: 5% auto;
   padding: 20px 30px;
   border-radius: 10px;
+
   width: 400px;
   max-width: 90%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -1093,7 +1121,7 @@ nav {
 }
 
 .notice-modal .notice-modal-content textarea {
-  height: 100px;
+  height: 200px;
   resize: none;
 }
 
@@ -1111,29 +1139,6 @@ nav {
 
 .notice-modal .notice-modal-content .save-notice-btn:hover {
   background: #0056b3;
-}
-
-.pagination {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  width: auto;
-}
-
-.pagination .page-btn {
-  margin: 0 5px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.pagination .page-btn.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
 }
 
 /* 모바일 크기 */
