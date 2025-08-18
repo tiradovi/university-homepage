@@ -53,6 +53,58 @@
       </div>
     </nav>
     <div class="page-title">자료실</div>
+
+    <div class="resources-container" id="resources-container">
+      <div class="resources-header">
+        <div class="category-filter">
+          <div class="category-buttons">
+            <button class="category-btn active" data-category="전체">
+              전체
+            </button>
+            <button class="category-btn" data-category="입학자료">
+              입학자료
+            </button>
+            <button class="category-btn" data-category="학사자료">
+              학사자료
+            </button>
+            <button class="category-btn" data-category="시설안내">
+              시설안내
+            </button>
+            <button class="category-btn" data-category="장학자료">
+              장학자료
+            </button>
+            <button class="category-btn" data-category="생활자료">
+              생활자료
+            </button>
+            <button class="category-btn" data-category="취업자료">
+              취업자료
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-controls">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="자료명을 검색하세요..."
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+      
+      <div class="sort-controls">
+        <select id="sort-select">
+          <option value="latest">최신순</option>
+          <option value="popular">인기순</option>
+          <option value="name">이름순</option>
+        </select>
+      </div>
+
+      <div class="resources-list"></div>
+    </div>
+
     <button id="scroll-to-top" class="scroll-to-top" title="맨 위로">↑</button>
     <script src="../js/common.js"></script>
     <script src="../js/resources.js"></script>

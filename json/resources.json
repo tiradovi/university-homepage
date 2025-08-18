@@ -1,0 +1,154 @@
+{
+  "resources": [
+    {
+      "id": 1,
+      "title": "2024학년도 입학 안내서",
+      "category": "입학자료",
+      "description": "신입생을 위한 종합 입학 안내서입니다.",
+      "fileType": "PDF",
+      "fileSize": "2.5MB",
+      "uploadDate": "2024-01-15",
+      "downloadCount": 1250,
+      "fileName": "2024_admission_guide.pdf"
+    },
+    {
+      "id": 2,
+      "title": "학과별 교육과정표",
+      "category": "학사자료",
+      "description": "각 학과의 상세한 교육과정 정보를 담고 있습니다.",
+      "fileType": "Excel",
+      "fileSize": "1.8MB",
+      "uploadDate": "2024-02-20",
+      "downloadCount": 890,
+      "fileName": "curriculum_2024.xlsx"
+    },
+    {
+      "id": 3,
+      "title": "캠퍼스 지도 및 시설 안내",
+      "category": "시설안내",
+      "description": "캠퍼스 내 주요 시설과 건물 위치 안내입니다.",
+      "fileType": "PDF",
+      "fileSize": "5.2MB",
+      "uploadDate": "2024-03-10",
+      "downloadCount": 2100,
+      "fileName": "campus_map_2024.pdf"
+    },
+    {
+      "id": 4,
+      "title": "장학금 신청 양식",
+      "category": "장학자료",
+      "description": "각종 장학금 신청을 위한 서류 양식 모음입니다.",
+      "fileType": "DOC",
+      "fileSize": "0.8MB",
+      "uploadDate": "2024-03-05",
+      "downloadCount": 756,
+      "fileName": "scholarship_forms.docx"
+    },
+    {
+      "id": 5,
+      "title": "기숙사 입사 신청서",
+      "category": "생활자료",
+      "description": "기숙사 입사를 위한 신청서 및 안내사항입니다.",
+      "fileType": "PDF",
+      "fileSize": "1.2MB",
+      "uploadDate": "2024-02-28",
+      "downloadCount": 643,
+      "fileName": "dormitory_application.pdf"
+    },
+    {
+      "id": 6,
+      "title": "학생회칙 및 자치규정",
+      "category": "학사자료",
+      "description": "학생회 운영을 위한 회칙과 각종 자치규정입니다.",
+      "fileType": "PDF",
+      "fileSize": "0.9MB",
+      "uploadDate": "2024-01-30",
+      "downloadCount": 423,
+      "fileName": "student_council_rules.pdf"
+    },
+    {
+      "id": 7,
+      "title": "졸업요건 및 학위취득 안내",
+      "category": "학사자료",
+      "description": "졸업을 위한 필수 요건과 학위 취득 절차 안내입니다.",
+      "fileType": "PDF",
+      "fileSize": "1.5MB",
+      "uploadDate": "2024-02-15",
+      "downloadCount": 987,
+      "fileName": "graduation_requirements.pdf"
+    },
+    {
+      "id": 8,
+      "title": "취업지원센터 프로그램 안내",
+      "category": "취업자료",
+      "description": "취업 준비를 위한 각종 프로그램과 서비스 안내입니다.",
+      "fileType": "PDF",
+      "fileSize": "3.1MB",
+      "uploadDate": "2024-03-20",
+      "downloadCount": 1340,
+      "fileName": "career_center_programs.pdf"
+    },
+    {
+      "id": 9,
+      "title": "해외교환학생 프로그램 안내",
+      "category": "학사자료",
+      "description": "해외 자매대학 교환학생 프로그램 신청 안내입니다.",
+      "fileType": "PDF",
+      "fileSize": "2.3MB",
+      "uploadDate": "2024-03-25",
+      "downloadCount": 567,
+      "fileName": "exchange_student_program.pdf"
+    },
+    {
+      "id": 10,
+      "title": "학생 창업 지원 안내서",
+      "category": "취업자료",
+      "description": "학생 창업을 위한 지원 프로그램과 혜택 안내입니다.",
+      "fileType": "PDF",
+      "fileSize": "1.9MB",
+      "uploadDate": "2024-04-01",
+      "downloadCount": 432,
+      "fileName": "startup_support_guide.pdf"
+    }
+  ],
+  "categories": [
+    {
+      "name": "입학자료",
+      "color": "#4CAF50",
+      "description": "신입생 및 입학 관련 자료"
+    },
+    {
+      "name": "학사자료",
+      "color": "#2196F3",
+      "description": "학사 일정 및 교육과정 관련 자료"
+    },
+    {
+      "name": "시설안내",
+      "color": "#FF9800",
+      "description": "캠퍼스 시설 및 편의시설 안내"
+    },
+    {
+      "name": "장학자료",
+      "color": "#9C27B0",
+      "description": "장학금 및 학자금 지원 관련 자료"
+    },
+    {
+      "name": "생활자료",
+      "color": "#F44336",
+      "description": "기숙사 및 학생 생활 관련 자료"
+    },
+    {
+      "name": "취업자료",
+      "color": "#795548",
+      "description": "취업 지원 및 진로 관련 자료"
+    }
+  ],
+  "fileTypes": {
+    "PDF": "📄",
+    "Excel": "📊",
+    "DOC": "📝",
+    "PPT": "📽️",
+    "ZIP": "📦",
+    "IMG": "🖼️"
+  }
+}
