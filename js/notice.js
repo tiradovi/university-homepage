@@ -7,13 +7,12 @@ const noticesPerPage = 10;
 let currentPage = 1;
 
 $(function () {
-  const currentUser = getSession("loggedInUser");
-  if (currentUser) $("#add-notice-btn").show();
+  if (getSession("loggedInUser")) $("#add-notice-btn").show();
   renderNotices();
   bindModalEvents();
 
   $("#add-notice-btn").on("click", () => {
-    if (!currentUser) {
+    if (!getSession("loggedInUser")) {
       alert("로그인이 필요합니다.");
       openLoginPopup();
       renderNotices();
@@ -44,23 +43,6 @@ $(function () {
     deleteNotice($(this).data("idx"));
   });
 });
-
-function bindModalEvents() {
-  $("#notice-modal-close, #notice-modal").on("click", function (e) {
-    if (e.target === this) closeModal();
-  });
-
-  $(document).on("keyup.noticeModal", function (e) {
-    if (e.key === "Escape") closeModal();
-  });
-}
-
-function closeModal() {
-  modal.fadeOut(200);
-  $("#notice-title, #notice-content").val("");
-  $("#notice-category").val("academic");
-  $("#notice-detail").remove();
-}
 
 function renderNotices() {
   const currentUser = getSession("loggedInUser");
@@ -131,25 +113,24 @@ function deleteNotice(idx) {
   setStorage("notices", notices);
   renderNotices();
 }
-function openNoticeModal(notice, idx, mode) {
-  const currentUser = getSession("loggedInUser");
-  const $title = $("#notice-title");
-  const $content = $("#notice-content");
-  const $category = $("#notice-category");
+function openNoticeModal(notice = null, idx = null, mode = "edit") {
+  const noticeTitle = $("#notice-title");
+  const noticeContent = $("#notice-content");
+  const noticeCategory = $("#notice-category");
 
-  $title.val(notice?.title || "");
-  $content.val(notice?.content || "");
-  $category.val(notice?.category || "academic");
+  noticeTitle.val(notice?.title || "");
+  noticeContent.val(notice?.content || "");
+  noticeCategory.val(notice?.category || "academic");
 
   if (mode === "view") {
-    $title.prop("readonly", true);
-    $content.prop("readonly", true);
-    $category.prop("disabled", true);
+    noticeTitle.prop("readonly", true);
+    noticeContent.prop("readonly", true);
+    noticeCategory.prop("disabled", true);
     $("#save-notice-btn").hide();
   } else {
-    $title.prop("readonly", false);
-    $content.prop("readonly", false);
-    $category.prop("disabled", false);
+    noticeTitle.prop("readonly", false);
+    noticeContent.prop("readonly", false);
+    noticeCategory.prop("disabled", false);
     $("#save-notice-btn").show();
   }
 
@@ -159,21 +140,14 @@ function openNoticeModal(notice, idx, mode) {
     $("#save-notice-btn")
       .off("click")
       .on("click", function () {
-        if (!currentUser) {
-          alert("로그인이 필요합니다.");
-          return;
-        }
-
-        const title = $title.val().trim();
-        const content = $content.val().trim();
-        const category = $category.val();
-        if (!title || !content) return alert("제목과 내용을 입력해주세요.");
+        if (!noticeTitle.val().trim() || !noticeContent.val().trim())
+          return alert("제목과 내용을 입력해주세요.");
 
         const newNotice = {
-          title,
-          content,
-          category,
-          author: currentUser.name,
+          title: noticeTitle.val().trim(),
+          content: noticeContent.val().trim(),
+          category: noticeCategory.val(),
+          author: getSession("loggedInUser").name,
           date: new Date().toISOString().slice(0, 10),
         };
 
@@ -188,4 +162,19 @@ function openNoticeModal(notice, idx, mode) {
         closeModal();
       });
   }
+}
+function bindModalEvents() {
+  $("#notice-modal-close, #notice-modal").on("click", function (e) {
+    if (e.target === this) closeModal();
+  });
+
+  $(document).on("keyup.noticeModal", function (e) {
+    if (e.key === "Escape") closeModal();
+  });
+}
+function closeModal() {
+  modal.fadeOut(200);
+  $("#notice-title, #notice-content").val("");
+  $("#notice-category").val("academic");
+  $("#notice-detail").remove();
 }
