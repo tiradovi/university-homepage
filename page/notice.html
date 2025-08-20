@@ -52,6 +52,12 @@
         <button class="nav-toggle" id="nav-toggle">☰</button>
       </div>
     </nav>
+    <div class="dark-mode-toggle-container">
+      <button id="dark-mode-toggle" class="dark-mode-toggle-btn">
+        <span class="toggle-text">다크모드</span>
+        <span class="toggle-icon">🌙</span>
+      </button>
+    </div>
     <div class="page-title">공지사항</div>
 
     <div class="notice-container">
@@ -68,21 +74,21 @@
         <input type="date" id="search-date" />
         <button id="search-btn">검색</button>
       </div>
-
-      <table class="notice-table">
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>카테고리</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>관리</th>
-          </tr>
-        </thead>
-        <tbody id="notice-list"></tbody>
-      </table>
-
+      <div class="table-wrapper">
+        <table class="notice-table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>카테고리</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>관리</th>
+            </tr>
+          </thead>
+          <tbody id="notice-list"></tbody>
+        </table>
+      </div>
       <button id="add-notice-btn" class="add-notice-btn">공지 작성</button>
     </div>
 
