@@ -8,8 +8,8 @@
 
 ###  **[배포된 웹사이트 보기](https://korea-university-homepage.vercel.app/)**
 
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ghibli-movie-theater-gn2t.vercel.app/)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ghibli-movie-theater-gn2t.vercel.app/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://korea-university-homepage.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://korea-university-homepage.vercel.app/)
 
 **별도 설치 없이 바로 체험 가능**
 
@@ -236,4 +236,5 @@ function startSessionTimer(sessionUser) {
 모바일 기기에서 다음 URL을 입력하여 반응형 디자인을 직접 체험해보세요:
 
 **🔗 https://ghibli-movie-theater-gn2t.vercel.app/**
+
 
